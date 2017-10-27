@@ -1,0 +1,3 @@
+﻿10760 10:27:18 INFO  Warming and Caching your search indexes
+10760 10:27:18 INFO  /******* Warming Queries ********/
+10760 10:27:18 INFO  /*************************/

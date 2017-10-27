@@ -1,0 +1,3 @@
+﻿9952 18:47:17 INFO  Warming and Caching your search indexes
+9952 18:47:17 INFO  /******* Warming Queries ********/
+9952 18:47:17 INFO  /*************************/

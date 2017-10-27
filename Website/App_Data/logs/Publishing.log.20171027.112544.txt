@@ -1,0 +1,41 @@
+﻿5640 11:25:47 INFO  [Recovery]: Setting default publish recovery strategy.
+5640 11:25:47 INFO  [Recovery]: Publish Recovery Enabled - False
+5640 11:25:47 INFO  [Recovery]: Publish Recovery Strategy - DatabasePublishRecoveryStrategy
+5640 11:25:47 INFO  Settings.Publishing.AutoScheduleSmartPublish:True
+5640 11:25:47 INFO  Settings.Publishing.CheckSecurity:False
+5640 11:25:47 INFO  Settings.Publishing.CompareRevisions:True
+5640 11:25:47 INFO  Settings.Publishing.DisableDatabaseCaches:False
+5640 11:25:47 INFO  Settings.Publishing.ExecuteInManagedThreadPool:False
+5640 11:25:47 INFO  Settings.Publishing.LogInterval:0
+5640 11:25:47 INFO  Settings.Publishing.MaxDegreeOfParallelism:1
+5640 11:25:47 INFO  Settings.Publishing.PublishDialogPollingInterval:500
+5640 11:25:47 INFO  Settings.Publishing.PublishEmptyItems:False
+5640 11:25:47 INFO  Settings.Publishing.PublishingInstance:LK-SPR-sc90rev171002-xm1cm.local
+5640 11:25:47 INFO  Settings.Publishing.RequireTargetDeleteRightWhenCheckingSecurity:True
+5640 11:25:47 INFO  Settings.Publishing.StatusUpdateInterval:00:00:02
+5640 11:25:47 INFO  Settings.Publishing.ThreadPriority:BelowNormal
+5640 11:25:47 INFO  Settings.Publishing.TimeBeforeStatusExpires:02:00:00
+3180 11:26:55 INFO  [Publishing]: Starting to process 1 publishing options
+3180 11:26:55 INFO  [PublishOptions]: root:{B3D46EA0-B836-48F4-9C94-A6A52D3D9CCA}, language:en, targets:Internet, database:web, mode:SingleItem, smart:True children:True, related:False
+16788 11:26:56 WARN  SingleItemPublish detected. PublishContext was overridden with MaxDegreeOfParallelism=1, DisableDatabaseCaches=False.
+16788 11:26:56 INFO  Starting [Publishing] - AddItemsToQueue
+16788 11:26:56 INFO  Finished [Publishing] - AddItemsToQueue in 0 ms
+16788 11:26:56 INFO  Starting [Publishing] - ProcessQueue
+16788 11:26:56 INFO  Finished [Publishing] - ProcessQueue in 56 ms
+16788 11:26:56 INFO  Publish Mode : SingleItem
+16788 11:26:56 INFO  Created : 1
+16788 11:26:56 INFO  Updated : 0
+16788 11:26:56 INFO  Deleted : 0
+16788 11:26:56 INFO  Skipped : 1
+15112 11:27:27 INFO  [Publishing]: Starting to process 1 publishing options
+15112 11:27:27 INFO  [PublishOptions]: root:{B3D46EA0-B836-48F4-9C94-A6A52D3D9CCA}, language:en, targets:Internet, database:web, mode:SingleItem, smart:False children:False, related:True
+12252 11:27:28 WARN  SingleItemPublish detected. PublishContext was overridden with MaxDegreeOfParallelism=1, DisableDatabaseCaches=False.
+12252 11:27:28 INFO  Starting [Publishing] - AddItemsToQueue
+12252 11:27:28 INFO  Finished [Publishing] - AddItemsToQueue in 0 ms
+12252 11:27:28 INFO  Starting [Publishing] - ProcessQueue
+12252 11:27:29 INFO  Finished [Publishing] - ProcessQueue in 249 ms
+12252 11:27:29 INFO  Publish Mode : SingleItem
+12252 11:27:29 INFO  Created : 1
+12252 11:27:29 INFO  Updated : 51
+12252 11:27:29 INFO  Deleted : 0
+12252 11:27:29 INFO  Skipped : 37

@@ -1,0 +1,22 @@
+From,To,CIDR,Description,RFC,Since,Until,IPv,Link
+0.0.0.0,0.255.255.255,0.0.0.0/8,This host on this net,RFC1122,1981,,IPv4,https://tools.ietf.org/html/rfc6890
+10.0.0.0,10.255.255.255,10.0.0.0/8,Private,RFC1918,1996,,IPv4,https://tools.ietf.org/html/rfc6890
+100.64.0.0,100.127.255.255,100.64.0.0/10,Shared Address Space,RFC6598,2012,,IPv4,https://tools.ietf.org/html/rfc6890
+127.0.0.0,127.255.255.255,127.0.0.0/8 ,Loopback,RFC1122,1981,,IPv4,https://tools.ietf.org/html/rfc6890
+169.254.0.0,169.254.255.255,169.254.0.0/16,Link Local,RFC3927,2005,,IPv4,https://tools.ietf.org/html/rfc6890
+172.16.0.0,172.31.255.255,172.16.0.0/12,Private-Use,RFC1918,1996,,IPv4,https://tools.ietf.org/html/rfc6890
+192.0.0.0,192.0.0.7,192.0.0.0/29 ,DS-Lite,RFC6333,2011,,IPv4,https://tools.ietf.org/html/rfc6890
+192.0.2.0,192.0.2.255,192.0.2.0/24,Documentation (TEST-NET-1),RFC5737,2010,,IPv4,https://tools.ietf.org/html/rfc6890
+192.168.0.0,192.168.255.255,192.168.0.0/16,Private-Use,RFC1918,1996,,IPv4,https://tools.ietf.org/html/rfc6890
+198.18.0.0,198.19.255.255,198.18.0.0/15,Benchmarking  ,RFC2544,1999,,IPv4,https://tools.ietf.org/html/rfc6890
+198.51.100.0,198.51.100.255,198.51.100.0/24 ,Documentation (TEST-NET-2),RFC5737,2010,,IPv4,https://tools.ietf.org/html/rfc6890
+203.0.113.0,203.0.113.255,203.0.113.0/24,Documentation (TEST-NET-3),RFC5737,2010,,IPv4,https://tools.ietf.org/html/rfc6890
+255.255.255.255,255.255.255.255,255.255.255.255/32,Limited Broadcast,RFC0919,1984,,IPv4,https://tools.ietf.org/html/rfc6890
+240.0.0.0,255.255.255.255,240.0.0.0/4,Reserved,RFC1112,1989,,IPv4,https://tools.ietf.org/html/rfc6890
+fe80::,FEBF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF,fe80::/10,Linked-Scoped Unicast,[RFC4291],2006,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
+FC00::,FDFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF,fc00::/7,Unique-Local,[RFC4193],2005,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
+2001:db8::,2001:0DB8:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF,2001:db8::/32,Documentation,[RFC3849],2004,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
+2001:0002::,2001:0002::FFFF:FFFF:FFFF:FFFF:FFFF,2001:2::/48,Benchmarking,[RFC5180],2008,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
+100::,0100::FFFF:FFFF:FFFF:FFFF,100::/64,Discard-Only Address Block,[RFC6666],2012,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
+::,::,::/128,Unspecified Address,[RFC4291],2006,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml
+::1,::1,::1/128,Loopback Address,[RFC4291],2006,,IPv6,http://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry.xhtml

@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.FXM.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExecutePageEditorAction.TryGetFxmMvcWebControl">
+            <summary>Processor for the 'executePageEditorAction' pipeline that will attempt to render a web control wrapped MVC rendering.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExecutePageEditorAction.TryGetFxmMvcWebControl.Process(Sitecore.Pipelines.PipelineArgs)">
+            <summary>
+            Processes the arguments.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData">
+            <summary>Adds Placeholder data to the Experience Editor output.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.Selector">
+            <summary>The selector.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.Placeholder">
+            <summary>The placeholder.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.ClientAction">
+            <summary>The client action.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.HintName">
+            <summary>The hint name.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.FxmStartMaker">
+            <summary>The fxm start maker.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.FxmEndMaker">
+            <summary>The fxm end maker.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.HiddenField">
+            <summary>The hidden field.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.DisplayNameKey">
+            <summary>The display name key.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.Process(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>Trigger the processor.</summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.AppendChromeData(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs,System.String)">
+            <summary>Appends the chrome data.</summary>
+            <param name="args">The arguments.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.GetStartMarker(Sitecore.Data.Items.Item,System.String)">
+            <summary>Gets the start marker.</summary>
+            <param name="item">The item.</param>
+            <param name="key">The key.</param>
+            <returns>The start marker.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.GetEndMarker(System.String)">
+            <summary>Gets the end marker.</summary>
+            <param name="key">The key.</param>
+            <returns>The end marker.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.AddPlaceholderData.GetStartMarker(System.String,Sitecore.Web.UI.PageModes.ChromeData)">
+            <summary>Gets the start marker.</summary>
+            <param name="key">The key.</param>
+            <param name="data">The data.</param>
+            <returns>The complete start marker.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs">
+            <summary>External page experience editor pipeline arguments.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs"/> class.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs.ExperienceEditorUrl">
+            <summary>Gets or sets the experience editor Url.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs.MatcherContextItem">
+            <summary>Gets or sets the current matcher item in context.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs.ExternalPageContent">
+            <summary>Gets or sets the external page content.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs.HeadControls">
+            <summary>Gets or sets the page head element controls.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs.BodyControls">
+            <summary>Gets or sets the page body element controls.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageProcessorBase.SitecoreSettings">
+            <summary>Sitecore settings.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageProcessorBase.HostName">
+            <summary>
+            Gets or sets the name of the host.
+            </summary>
+            <value>
+            The name of the host.
+            </value>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageProcessorBase.GetBeaconScriptTag(HtmlAgilityPack.HtmlNode)">
+            <summary>Gets the HTML node containing the Beacon script tag.</summary>
+            <param name="node">The HTML node to search.</param>
+            <returns>The HTML node containing the Beacon script tag, or null if it is not found.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageProcessorBase.IsBeaconScriptTag(HtmlAgilityPack.HtmlNode)">
+            <summary>Gets whether the script tag is a Beacon script tag.</summary>
+            <param name="scriptTag">The script tag to check.</param>
+            <returns>True if the script tag is a Beacon tag, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageProcessorBase.ContainsHost(System.String,System.String)">
+            <summary>
+            Determines whether the specified current host contains host.
+            </summary>
+            <param name="currentHost">The current host.</param>
+            <param name="validHost">The valid host.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageProcessorBase.RemoveNode(HtmlAgilityPack.HtmlNode)">
+            <summary>
+            Removes the specified node from source.
+            </summary>
+            <param name="node">The node to be removed.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.UpdateBeaconScriptPathProcessor">
+            <summary>External page content retrieval pipeline processor.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.UpdateBeaconScriptPathProcessor.#ctor(Sitecore.Abstractions.BaseSettings)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.UpdateBeaconScriptPathProcessor"/> class.</summary>
+            <param name="settings">The Sitecore settings.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.UpdateBeaconScriptPathProcessor.Process(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>
+            The process.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.UpdateBeaconScriptPathProcessor.UpdateBeaconScriptPath(HtmlAgilityPack.HtmlNode,System.String)">
+            <summary>Updates the "src" attribute of the Beacon script tag.</summary>
+            <param name="scriptTag">The Beacon script tag to update.</param>
+            <param name="hostName">The hostname to use for the script path.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor">
+            <summary>External page content retrieval pipeline processor.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.Process(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>Retrieves the content for a page on an external site.</summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.GetDomainMatcherUrl(Sitecore.Data.Items.Item)">
+            <summary>Gets the Domain Matcher Url.</summary>
+            <param name="currentItem">The item to examine.</param>
+            <returns>The url from the Domain Matcher, or empty if none is found.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.GetPageMatcherUrl(Sitecore.Data.Items.Item)">
+            <summary>Gets the page Matcher Url.</summary>
+            <returns>The first matching page path rule.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.IsValidUrl(System.String)">
+            <summary>Gets whether or not the Url is a valid resource.</summary>
+            <param name="externalPageUrl">The url.</param>
+            <returns>True if the Url returns an HTTP 200 response, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.GetBaseExperienceEditorUrl(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>
+            Gets the base Experience editor Url (removes any query string parameters required by FXM).
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns>The Experience Editor Url with FXM query string parameters removed.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.GetPageUrlQueryParameter(System.Uri)">
+            <summary>
+            The get page url query parameter.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.TryGetExternalPageUrl(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>
+            The get external page url.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.GetExternalPageContentProcessor.IsValidHost(System.Uri,System.Uri)">
+            <summary>
+            Checks that the External Page hostname matches the Domain Matcher hostname.
+            </summary>
+            <returns>True if they match, otherwise false.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.IExternalPageExperienceEditorProcessor">
+            <summary>The ExternalPageExperienceEditorProcessor interface.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.IExternalPageExperienceEditorProcessor.Process(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>The process.</summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.InjectControlsProcessor">
+            <summary>Placeholder control injection pipeline processor.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.InjectControlsProcessor.Process(Sitecore.FXM.Client.Pipelines.ExperienceEditor.ExternalPage.ExternalPageExperienceEditorArgs)">
+            <summary>Generates the Placeholder controls for the external site page.</summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData">
+            <summary>Fetches chrome data for FXM controls.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData.placeholderkey">
+            <summary>The placeholder key.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData.ChromeType">
+            <summary>Gets the type of the chrome.</summary>
+            <value>The type of the chrome.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData.PlaceholderKey">
+            <summary>Gets or sets the placeholder key.</summary>
+            <value>The placeholder key.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData.ButtonsRoot">
+            <summary>Gets the buttons root.</summary>
+            <value>The buttons root.</value>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData.Process(Sitecore.Pipelines.GetChromeData.GetChromeDataArgs)">
+            <summary>Processes the specified arguments.</summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetFxmChromeData.ShouldProcess(Sitecore.Pipelines.GetChromeData.GetChromeDataArgs)">
+            <summary>Checks if the process should run.</summary>
+            <param name="args">The arguments.</param>
+            <returns>True if the process should run.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetPlaceholdersChromeData">
+            <summary>
+            Gets placeholder controls.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetPlaceholdersChromeData.ChromeType">
+            <summary>Gets the type of the chrome.</summary>
+            <value>The type of the chrome.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetPlaceholdersChromeData.ButtonsRoot">
+            <summary>Gets the buttons root.</summary>
+            <value>The buttons root.</value>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetPlaceholdersChromeData.Process(Sitecore.Pipelines.GetChromeData.GetChromeDataArgs)">
+            <summary>
+            Process the <see cref="T:Sitecore.Pipelines.GetChromeData.GetChromeDataArgs"/>.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetPlaceholdersChromeData.ShouldProcess(Sitecore.Pipelines.GetChromeData.GetChromeDataArgs)">
+            <summary>Checks if the process should run.</summary>
+            <param name="args">The arguments.</param>
+            <returns>True if the process should run.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetClientActionsChromeData">
+            <summary>
+            Gets the selectors controls.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetClientActionsChromeData.ChromeType">
+            <summary>Gets the type of the chrome.</summary>
+            <value>The type of the chrome.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetClientActionsChromeData.ButtonsRoot">
+            <summary>Gets the buttons root.</summary>
+            <value>The buttons root.</value>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetClientActionsChromeData.Process(Sitecore.Pipelines.GetChromeData.GetChromeDataArgs)">
+            <summary>Processes the specified arguments.</summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetSelectorsChromeData">
+            <summary>
+            Gets the selectors controls.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetSelectorsChromeData.ChromeType">
+            <summary>Gets the type of the chrome.</summary>
+            <value>The type of the chrome.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetSelectorsChromeData.ButtonsRoot">
+            <summary>Gets the buttons root.</summary>
+            <value>The buttons root.</value>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Pipelines.ExperienceEditor.GetChromeData.GetSelectorsChromeData.Process(Sitecore.Pipelines.GetChromeData.GetChromeDataArgs)">
+            <summary>Processes the specified arguments.</summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor">
+            <summary>External site Experience Editor Layout.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor.FxmWebContent">
+            <summary>The external content container control.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor._sitecoreContext">
+            <summary>The Sitecore context.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor._pipeline">
+            <summary>The sitecore pipeline.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor"/> class.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor.#ctor(Sitecore.FXM.Abstractions.ISitecoreContext,Sitecore.Abstractions.BaseCorePipelineManager)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor"/> class.</summary>
+            <param name="context">The Sitecore context.</param>
+            /// <param name="pipeline">The Sitecore pipeline.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Client.Shell.Applications.ExperienceEditor.Page_Load(System.Object,System.EventArgs)">
+            <summary>The Page Load event handler.</summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+    </members>
+</doc>

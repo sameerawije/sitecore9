@@ -1,0 +1,17 @@
+﻿16192 11:16:15 INFO  [Recovery]: Setting default publish recovery strategy.
+16192 11:16:15 INFO  [Recovery]: Publish Recovery Enabled - False
+16192 11:16:15 INFO  [Recovery]: Publish Recovery Strategy - DatabasePublishRecoveryStrategy
+16192 11:16:15 INFO  Settings.Publishing.AutoScheduleSmartPublish:True
+16192 11:16:15 INFO  Settings.Publishing.CheckSecurity:False
+16192 11:16:15 INFO  Settings.Publishing.CompareRevisions:True
+16192 11:16:15 INFO  Settings.Publishing.DisableDatabaseCaches:False
+16192 11:16:15 INFO  Settings.Publishing.ExecuteInManagedThreadPool:False
+16192 11:16:15 INFO  Settings.Publishing.LogInterval:0
+16192 11:16:15 INFO  Settings.Publishing.MaxDegreeOfParallelism:1
+16192 11:16:15 INFO  Settings.Publishing.PublishDialogPollingInterval:500
+16192 11:16:15 INFO  Settings.Publishing.PublishEmptyItems:False
+16192 11:16:15 INFO  Settings.Publishing.PublishingInstance:LK-SPR-sc90rev171002-xm1cm.local
+16192 11:16:15 INFO  Settings.Publishing.RequireTargetDeleteRightWhenCheckingSecurity:True
+16192 11:16:15 INFO  Settings.Publishing.StatusUpdateInterval:00:00:02
+16192 11:16:15 INFO  Settings.Publishing.ThreadPriority:BelowNormal
+16192 11:16:15 INFO  Settings.Publishing.TimeBeforeStatusExpires:02:00:00

@@ -1,0 +1,41 @@
+﻿7940 11:21:15 INFO  [Recovery]: Setting default publish recovery strategy.
+7940 11:21:15 INFO  [Recovery]: Publish Recovery Enabled - False
+7940 11:21:15 INFO  [Recovery]: Publish Recovery Strategy - DatabasePublishRecoveryStrategy
+7940 11:21:15 INFO  Settings.Publishing.AutoScheduleSmartPublish:True
+7940 11:21:15 INFO  Settings.Publishing.CheckSecurity:False
+7940 11:21:15 INFO  Settings.Publishing.CompareRevisions:True
+7940 11:21:15 INFO  Settings.Publishing.DisableDatabaseCaches:False
+7940 11:21:15 INFO  Settings.Publishing.ExecuteInManagedThreadPool:False
+7940 11:21:15 INFO  Settings.Publishing.LogInterval:0
+7940 11:21:15 INFO  Settings.Publishing.MaxDegreeOfParallelism:1
+7940 11:21:15 INFO  Settings.Publishing.PublishDialogPollingInterval:500
+7940 11:21:15 INFO  Settings.Publishing.PublishEmptyItems:False
+7940 11:21:15 INFO  Settings.Publishing.PublishingInstance:LK-SPR-sc90rev171002-xm1cm.local
+7940 11:21:15 INFO  Settings.Publishing.RequireTargetDeleteRightWhenCheckingSecurity:True
+7940 11:21:15 INFO  Settings.Publishing.StatusUpdateInterval:00:00:02
+7940 11:21:15 INFO  Settings.Publishing.ThreadPriority:BelowNormal
+7940 11:21:15 INFO  Settings.Publishing.TimeBeforeStatusExpires:02:00:00
+9188 11:23:03 INFO  [Publishing]: Starting to process 1 publishing options
+9188 11:23:03 INFO  [PublishOptions]: root:null, language:en, targets:Internet, database:web, mode:Full, smart:True children:True, related:True
+16964 11:23:05 WARN  SitePublish detected. PublishContext was overridden with DisableDatabaseCaches=True.
+16964 11:23:05 INFO  Starting [Publishing] - AddItemsToQueue
+16964 11:23:05 INFO  Finished [Publishing] - AddItemsToQueue in 0 ms
+16964 11:23:05 INFO  Starting [Publishing] - ProcessQueue
+16964 11:23:09 INFO  Finished [Publishing] - ProcessQueue in 3761 ms
+16964 11:23:09 INFO  Publish Mode : Smart
+16964 11:23:09 INFO  Created : 2
+16964 11:23:09 INFO  Updated : 3
+16964 11:23:09 INFO  Deleted : 60
+16964 11:23:09 INFO  Skipped : 4686
+14564 11:24:06 INFO  [Publishing]: Starting to process 1 publishing options
+14564 11:24:06 INFO  [PublishOptions]: root:null, language:en, targets:Internet, database:web, mode:Full, smart:False children:True, related:True
+2500 11:24:07 WARN  SitePublish detected. PublishContext was overridden with DisableDatabaseCaches=True.
+2500 11:24:07 INFO  Starting [Publishing] - AddItemsToQueue
+2500 11:24:07 INFO  Finished [Publishing] - AddItemsToQueue in 0 ms
+2500 11:24:07 INFO  Starting [Publishing] - ProcessQueue
+2500 11:24:21 INFO  Finished [Publishing] - ProcessQueue in 14423 ms
+2500 11:24:21 INFO  Publish Mode : Full
+2500 11:24:21 INFO  Created : 0
+2500 11:24:21 INFO  Updated : 4688
+2500 11:24:21 INFO  Deleted : 0
+2500 11:24:21 INFO  Skipped : 63

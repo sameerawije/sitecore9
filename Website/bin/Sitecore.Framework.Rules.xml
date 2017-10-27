@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.Framework.Rules</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.Framework.Rules.DisableRuleEntityDiscoveryAttribute">
+            <summary>A Rule entity class that will not be automatically discovered by
+            the Rule Libraries mechanism.</summary>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.DisableRuleEntityDiscoveryAttribute.#ctor">
+            <summary>A Rule entity class that will not be automatically discovered by
+            the Rule Libraries mechanism.</summary>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.AddPriorityGroup(System.Action{Sitecore.Framework.Rules.Registry.IRuleEntitySetTypes},System.Action{Sitecore.Framework.Rules.Registry.IRuleEntitySetSources})">
+            <summary>
+            Defines a set of Rule entities (<see cref="T:Sitecore.Framework.Rules.ICondition"/>, <see cref="T:Sitecore.Framework.Rules.IAction"/>, <see cref="T:Sitecore.Framework.Rules.IBinaryOperator`2"/>, <see cref="T:Sitecore.Framework.Rules.IFactResolver`1"/>)
+            to have the same priority level during the type scanning process during startup.  The set is given the next
+            highest priority available according to it's order in the bootstrap pipeline.
+            </summary>
+            <param name="configureEntityTypes">Specify which types of entities are to be included in this group (typically 'All').</param>
+            <param name="configureSources">Specify the sources from all the referenced assemblies in which the entities for this group are to be found.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreTypes(System.Predicate{System.Type})">
+            <summary>
+            Blacklist types from the type scanning process performed at startup when discovering entities in the system.
+            </summary>
+            <param name="typePredicate">Selects which types are to be blacklisted.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreTypes(System.String)">
+            <summary>
+            Blacklist types matching the regex string from the type scanning process performed at startup when discovering entities in the system.
+            </summary>
+            <param name="typeNameRegex">Selects which types are to be blacklisted.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreTypes(System.Type[])">
+            <summary>
+            Blacklist types from the type scanning process performed at startup when discovering entities in the system.
+            </summary>
+            <param name="entityTypes">The types to be omitted.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreType``1">
+            <summary>
+            Blacklist the type from the type scanning process performed at startup when discovering entities in the system.
+            </summary>
+            <typeparam name="TEntity">The entity type to be ignored.</typeparam>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreNamespaces(System.Predicate{System.String})">
+            <summary>
+            Blacklist all types in namespaces matching a predicate from the type scanning process performed at startup.
+            </summary>
+            <param name="namespacePredicate">Selects which namespaces to blacklist.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreNamespaces(System.String)">
+            <summary>
+            Blacklist all types in namespaces matching a regex from the type scanning process performed at startup.
+            </summary>
+            <param name="namespaceRegex">Selects which namespaces to blacklist.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreNamespacesOf(System.Type[])">
+            <summary>
+            Blacklist all types in the namespaces of the supplied types from the type scanning process performed at startup.
+            </summary>
+            <param name="typesInNamespaces">The types whose namespaces will be blacklisted.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreNamespaceOf``1">
+            <summary>
+            Blacklist all types in the namespace of the supplied type from the type scanning process performed at startup.
+            </summary>
+            <typeparam name="TEntity">The type whose namespace will be blacklisted.</typeparam>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreAssemblies(System.Predicate{System.Reflection.AssemblyName})">
+            <summary>
+            Blacklist all types in assemblies matching the predicate from the type scanning process performed at startup.
+            </summary>
+            <param name="assemblyPredicate">Selects which assemblies are to be blacklisted.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreAssemblies(System.String)">
+            <summary>
+            Blacklist all types in assemblies matching the regex from the type scanning process performed at startup.
+            </summary>
+            <param name="assemblyNameRegex">Selects which assemblies are to be blacklisted.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreAssemblies(System.Reflection.Assembly[])">
+            <summary>
+            Blacklist all types in the specified assemblies from the type scanning process performed at startup.
+            </summary>
+            <param name="assemblies">A list of assemblies to be blacklisted.</param>
+        </member>
+        <member name="M:Sitecore.Framework.Rules.SitecoreRulesConfigBuilder.IgnoreAssemblyOf``1">
+            <summary>
+            Blacklist all types in the assembly of the specified type from the type scanning process performed at startup.
+            </summary>
+            <typeparam name="TEntity">A type in the assembly to be blacklisted.</typeparam>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RulePriorityGroupOptionsExtensions.All(Sitecore.Framework.Rules.Registry.IRuleEntitySetTypes)">
+            <summary>
+            Selects all valid rule entity types (fact resolvers and condition entities).
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RulePriorityGroupOptionsExtensions.FactResolvers(Sitecore.Framework.Rules.Registry.IRuleEntitySetTypes)">
+            <summary>
+            Selects all fact resolver types.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.RulePriorityGroupOptionsExtensions.ConditionEntities(Sitecore.Framework.Rules.Registry.IRuleEntitySetTypes)">
+            <summary>
+            Selects all condition entity types (Conditions, Operators, Actions).
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1365 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.ListManagement</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.ListManagement.Configuration.ListManagementSettings">
+            <summary>
+            The list management settings.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Configuration.ListManagementSettings.DefaultDatabase">
+            <summary>
+            The default database.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Configuration.ListManagementSettings.#ctor(Sitecore.Abstractions.BaseSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Configuration.ListManagementSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.BatchSize">
+            <summary>
+            Defines default batch size for large subscription operations.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.ContextDatabase">
+            <summary>
+            Gets the database.
+            </summary>
+            <value>The database.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.ImportFacetsToMap">
+            <summary>
+            Gets the list of contact facets retrieved from XConnect to map 
+            data from a CSV file. Only fields that belong to facets listed 
+            here are mapped. All other fields are skipped.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.ImportRequiredFields">
+            <summary>
+            Gets the list of the required mapping fields. If at least one of 
+            these fields is missing in a CSV file or is not mapped properly, 
+            the entire contact is skipped and not imported.
+            
+            Please note that the field names below should correspond to the 
+            Import Dialog mapping fields configured in the 'core' database 
+            (you may use predefined Branches to add new mapping fields):
+            '/sitecore/client/Applications/List Manager/Dialogs/ImportWizardDialog/PageSettings/TabControl Parameters/Map/ImportModel'
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.SyncTimeout">
+            <summary>
+            Defines default timeout in seconds for indexing synchronization.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.ImportMaxThreads">
+            <summary>
+            Defines the maximum count of threads that can be used for importing operation. 
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Configuration.ListManagementSettings.XdbRequestRetriesCount">
+            <summary>
+            Count of retries of request to xDB in case of failure.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Constants">
+            <summary>
+            The constants.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Constants.ListManagerIdentifierSource">
+            <summary>
+            The list manager contact identifier source.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Constants.SitecoreListManagerEditorsRole">
+            <summary>
+            The list manager editors role.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Constants.IdentifierMappingKey">
+            <summary>
+            The mapping key used to get a contact identifier from a CSV line.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Constants.IdentifierSourceMappingKey">
+            <summary>
+            The mapping key used to get a contact identifier source from a CSV line.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Constants.PreferredEmailMappingKey">
+            <summary>
+            The mapping key used to get a contact preferred email from a CSV line.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.DependencyInjection.CustomServiceConfigurator">
+            <summary>
+                Configures ListManager XConnect entities and their dependencies.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.DependencyInjection.ServiceCollectionExtensions">
+            <summary>
+            Defines decoration extension methods for ServiceCollection
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.DependencyInjection.ServiceCollectionExtensions.Decorate``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Decorates all registered services of type <typeparamref name="TService"/>
+            using the specified type <typeparamref name="TDecorator"/>.
+            </summary>
+            <param name="services">The services to add to.</param>
+            <exception cref="T:System.ArgumentNullException">If the <paramref name="services"/> argument is <c>null</c>.</exception>
+        </member>
+        <member name="T:Sitecore.ListManagement.IListCombiner`1">
+            <summary>
+            Works with collections of identifiers of contact lists
+            and returns resulting collections of contacts.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListCombiner`1.Union(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Unions contacts from different contact lists.
+            </summary>
+            <param name="listIds">Ids of contact lists that need to be united.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListCombiner`1.Except(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Excepts contacts from one set of contact lists from base collection of contacts.
+            </summary>
+            <param name="leftListIds">
+            Identifiers of contact lists that act like basis for set of contacts.
+            </param>
+            <param name="rightListIds">
+            Identifiers of contact lists that are needed to be excepted from basis.
+            </param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListCombiner`1.Intersect(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Gets and intersects two collections of contacts from different contact lists.
+            </summary>
+            <param name="leftListIds">Left collection of identifiers of lists.</param>
+            <param name="rightListIds">Right collection of identifiers of lists.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListCombiner`1.UnionCount(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets count of united contacts from different contact lists.
+            </summary>
+            <param name="listIds">Ids of contact lists that need to be united.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListCombiner`1.ExceptCount(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets count of excepted contacts from one set of contact lists 
+            from base collection of contacts.
+            </summary>
+            <param name="leftListIds">
+            Identifiers of contact lists that act like basis for set of contacts.
+            </param>
+            <param name="rightListIds">
+            Identifiers of contact lists that are needed to be excepted from basis.
+            </param>
+            <param name="cultureInfo">Culture info.</param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListCombiner`1.IntersectCount(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets count of intersection of two collections of contacts from different contact lists.
+            </summary>
+            <param name="leftListIds">Left collection of contacts.</param>
+            <param name="rightListIds">Right collection of contacts.</param>
+            <param name="cultureInfo">Culture info.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.IListConverter">
+            <summary>
+            Performs different types of list conversions,
+            e.g. creating new lists on the basis of information
+            from the source list.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListConverter.Convert(System.Guid,System.Guid)">
+            <summary>
+            Creates target list on the basis of information from
+            source list.
+            Source one must be segmented list.
+            Target one will be created as contact list.
+            Subscribes all contacts of source list to target list.
+            </summary>
+            <param name="sourceSegmentedListId">Identifier of source list.</param>
+            <param name="targetContactListId">Identifier of target list.</param>
+            <returns>Created contact list.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.IListSubscriptionsStore`1">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.GetSubscribers(System.Guid,System.String,System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.Subscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.Unsubscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.CreateSubscribedContact(System.Guid,`0)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.RemoveDuplicates(System.Guid)">
+            <summary>
+            Search for duplicated contacts by preferred email and unsubscribe duplicates from the list.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException">The list with <paramref name="listId"/> identifier cannot be found</exception>
+            <exception cref="T:System.NotSupportedException">The list with <paramref name="listId"/> identifier has wrong type. Only type ContactList is supported.</exception>
+            <returns>Duplicated contacts count</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.RemoveAllSubscriptions(System.Guid)">
+            <summary>
+            Removes all sources and unsubscribe all contacts from the list.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException">The list with <paramref name="listId"/> identifier cannot be found</exception>
+            <exception cref="T:System.NotSupportedException">The list with <paramref name="listId"/> identifier has wrong type. Only type ContactList is supported.</exception>
+            <returns>Removed contacts count</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IListSubscriptionsStore`1.CopySubscriptions(System.Guid,System.Guid)">
+            <summary>
+            Subscribes all contacts of source list to target list.
+            </summary>
+            Target one should be contact list.
+            <param name="sourceListId">Identifier of source list.</param>
+            <param name="targetContactListId">Identifier of target list.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.ContactList">
+            <summary>
+            Represents either contact or segment list.
+            It <see cref="P:Sitecore.ListManagement.ContactList.SegmentDefinition"/> property exists
+            that current list is segmented one. Otherwise the list
+            is contact one.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactList.#ctor(Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.ContactList"/> class.
+            </summary>
+            <param name="contactListDefinition">The contact list definition.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactList.#ctor(Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition,Sitecore.Marketing.Definitions.Segments.ISegmentDefinition)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.ContactList"/> class.
+            </summary>
+            <param name="contactListDefinition">The contact list definition.</param>
+            <param name="segmentDefinition">The segment definition.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.ContactList.ContactListDefinition">
+            <summary>
+            Gets contact list definition of list.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.ContactList.SegmentDefinition">
+            <summary>
+            Gets segment definition of list.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactList.UpdateSegment(Sitecore.Marketing.Definitions.Segments.ISegmentDefinition)">
+            <summary>
+            Updates segmented list that has empty segment definition with new proper one. 
+            </summary>
+            <param name="segmentDefinition">New segment definition.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.ContactListProvider">
+            <summary>
+            Performs CRUD and search operations on <see cref="T:Sitecore.ListManagement.ContactList"/>
+            </summary>
+            <seealso cref="T:Sitecore.ListManagement.IContactListProvider" />
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactListProvider.#ctor(Sitecore.Marketing.Definitions.IDefinitionManager{Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition},Sitecore.Marketing.Definitions.IDefinitionManager{Sitecore.Marketing.Definitions.Segments.ISegmentDefinition},System.Globalization.CultureInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.ContactListProvider"/> class.
+            </summary>
+            <param name="contactListDefinitionManager">The contact list definition manager.</param>
+            <param name="segmentDefinitionManager">The segment definition manager.</param>
+            <param name="defaultCulture">The default culture for retrieving contact list definitions.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactListProvider.Get(System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the contact list using the specified list identifier.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <param name="culture">The culture.</param>
+            <returns>The contact list.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactListProvider.Search(Sitecore.Marketing.Definitions.SearchParameters{Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition,System.DateTime})">
+            <summary>
+            Searches for the contact lists using the specified search parameters.
+            </summary>
+            <param name="searchParameters">The search parameters.</param>
+            <returns>Result set of contact list with total.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactListProvider.Save(Sitecore.ListManagement.ContactList,System.Boolean)">
+            <summary>
+            Saves the specified contact list.
+            </summary>
+            <param name="contactList">The contact list.</param>
+            <param name="activate">if set to <c>true</c> [activate].</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.ContactListProvider.Delete(System.Guid)">
+            <summary>
+            Deletes the contact list that is specified by list identifier.
+            </summary>
+            <param name="listId">The list identifier.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.IContactListProvider">
+            <summary>
+            Performs CRUD and search operations on <see cref="T:Sitecore.ListManagement.ContactList"/>
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.IContactListProvider.Delete(System.Guid)">
+            <summary>
+            Deletes the contact list that is specified by list identifier.
+            </summary>
+            <param name="listId">The list identifier.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.IContactListProvider.Get(System.Guid,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the contact list using the specified list identifier.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <param name="culture">The culture.</param>
+            <returns>The contact list.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.IContactListProvider.Save(Sitecore.ListManagement.ContactList,System.Boolean)">
+            <summary>
+            Saves the specified contact list.
+            </summary>
+            <param name="contactList">The contact list.</param>
+            <param name="activate">if set to <c>true</c> [activate].</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.IContactListProvider.Search(Sitecore.Marketing.Definitions.SearchParameters{Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition,System.DateTime})">
+            <summary>
+            Searches for the contact lists using the specified search parameters.
+            </summary>
+            <param name="searchParameters">The search parameters.</param>
+            <returns>Result set of contact list with total.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.BatchContactImporter">
+            <summary>
+            Iterate through the list of contact data batches and imports them using
+            <see cref="T:Sitecore.ListManagement.Import.IContactImporter"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.BatchContactImporter.#ctor(Sitecore.ListManagement.Import.IContactImporter,Sitecore.ListManagement.Configuration.ListManagementSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.BatchContactImporter"/> class.
+            </summary>
+            <param name="importer">
+            The importer used to import the contact data batches one by one.
+            </param>
+            <param name="settings">
+            The settings to import. <see cref="P:Sitecore.ListManagement.Configuration.ListManagementSettings.BatchSize"/> setting is used as size of the contact batch to import. 
+            <see cref="P:Sitecore.ListManagement.Configuration.ListManagementSettings.ImportMaxThreads"/> setting is used as count of working threads used for importing
+            </param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.BatchContactImporter.Import(System.Collections.Generic.IEnumerable{System.String[]},Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Imports contacts from the <paramref name="contacts"/> collection of rows.
+            </summary>
+            <param name="contacts">The contact data represented as a list of string arrays.</param>
+            <param name="options">
+            The mapping options matching the contact data fields and their indexes 
+            in a CSV line.</param>
+            <param name="summary">
+            An instance of the <see cref="T:Sitecore.ListManagement.Import.ImportSummary"/> with importing 
+            statistics showing how many contacts have been imported or skipped.
+            </param>
+            <returns>
+            Asynchronous import operation.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.IdentifierIndexRangeFilter">
+            <summary>
+            Skips contacts if the identifier index does not fit the range 
+            specified in the <see cref="T:Sitecore.ListManagement.Import.ImportOptions" />.
+            The skipped contacts appear in the <see cref="T:Sitecore.ListManagement.Import.ImportSummary"/> report.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.IdentifierIndexRangeFilter.#ctor(Sitecore.ListManagement.Import.IImportContactSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.IdentifierIndexRangeFilter"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.IdentifierIndexRangeFilter.Read(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Reads contact data from a CSV stream before further importing.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to read the contact data from.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+            <returns>
+            The contact data represented as a list of string arrays.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.ImportResult">
+            <summary>
+            Represents result of the importing. Consists of expected amount of 
+            contacts and task to wait for importing results. 
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportResult.ExpectedContactsCount">
+            <summary>
+            Gets the expected contacts count.
+            </summary>
+            <value>
+            The expected contacts count.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportResult.ContactsWithoutRequiredFieldsCount">
+            <summary>
+            Gets the count of contacts without required fields.
+            </summary>
+            <value>
+            The count of contacts without required fields.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportResult.ImportTask">
+            <summary>
+            Gets the import task.
+            </summary>
+            <value>
+            The import task.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportResult.#ctor(System.Int32,System.Int32,System.Threading.Tasks.Task{Sitecore.ListManagement.Import.ImportSummary})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ImportResult"/> class.
+            </summary>
+            <param name="expectedContactsCount">The expected contacts count.</param>
+            <param name="contactsWithoutRequiredFieldsCount">The count of contacts without required fields.</param>
+            <param name="importTask">The import task.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.ObservableContactImporter">
+            <summary>
+            Decorate call to <see cref="T:Sitecore.ListManagement.Import.IContactImporter"/> with creating list operation./>
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ObservableContactImporter.#ctor(Sitecore.ListManagement.Import.IContactImporter,Sitecore.ListManagement.Operations.IListOperationRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ObservableContactImporter"/> class.
+            </summary>
+            <param name="importer">The importer used to import the contact data.</param>
+            <param name="listOperationRepository">The repository used to store <see cref="T:Sitecore.ListManagement.Operations.ListOperation"/></param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ObservableContactImporter.Import(System.Collections.Generic.IEnumerable{System.String[]},Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Imports contacts from the <paramref name="contacts"/> collection of rows.
+            </summary>
+            <param name="contacts">The contact data represented as a list of string arrays.</param>
+            <param name="options">
+            The mapping options matching the contact data fields and their indexes 
+            in a CSV line.</param>
+            <param name="summary">
+            An instance of the <see cref="T:Sitecore.ListManagement.Import.ImportSummary"/> with importing 
+            statistics showing how many contacts have been imported or skipped.
+            </param>
+            <returns>
+            Asynchronous import operation.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.RequiredMappingFieldRangeValidator">
+            <summary>
+            Validates whether all the necessary required mapping fields are 
+            provided withing the <see cref="T:Sitecore.ListManagement.Import.ImportOptions"/>. If not, prevents
+            the importing.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.RequiredMappingFieldRangeValidator.#ctor(Sitecore.ListManagement.Import.IContactImporter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.RequiredMappingFieldRangeValidator"/> class.
+            </summary>
+            <param name="importer">The importer used to import the contact 
+            data if all the required mapping fields are in range.
+            </param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.RequiredMappingFieldRangeValidator.Import(System.Collections.Generic.IEnumerable{System.String[]},Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Imports a batch of contacts.
+            </summary>
+            <param name="contacts">The list of contact data to import.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+            <exception cref="T:System.InvalidOperationException">If there are required 
+            mapping field indexes that are out of the contact data boundaries.</exception>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.UniqueIdentifierFilter">
+            <summary>
+            Guaranties every contact identifier appears only once. All the duplicates
+            are skipped.
+            The skipped contacts appear in the <see cref="T:Sitecore.ListManagement.Import.ImportSummary"/> report.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.UniqueIdentifierFilter.#ctor(Sitecore.ListManagement.Import.IImportContactSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.UniqueIdentifierFilter"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.UniqueIdentifierFilter.Read(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Reads contact data from a CSV stream before further importing.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to read the contact data from.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+            <returns>
+            The contact data represented as a list of string arrays.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.CsvContactSource">
+            <summary>
+            Reads contact data from a CSV stream.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvContactSource.#ctor(Sitecore.ListManagement.Import.CsvReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.CsvContactSource"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvContactSource.Read(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Reads contact data from a CSV stream before further importing.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to read the contact data from.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+            <returns>
+            The contact data represented as a list of string arrays.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.IImportContactSource">
+            <summary>
+            Reads contact data from a CSV stream before further importing. It can 
+            also be used for filtering out contacts that do not satisfy system 
+            requirements (e.g. have no email specified) or gather statistics.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.IImportContactSource.Read(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Reads contact data from a CSV stream before further importing.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to read the contact data from.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+            <returns>The contact data represented as a list of string arrays.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.IContactImporter">
+            <summary>
+            Imports a batch of contacts.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.IContactImporter.Import(System.Collections.Generic.IEnumerable{System.String[]},Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Imports a batch of contacts.
+            </summary>
+            <param name="contacts">The list of contact data to import.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.ImportOptions">
+            <summary>
+            Defines the <see cref="T:Sitecore.ListManagement.Import.StreamContactImporter"/> configuration options.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportOptions.#ctor(Sitecore.ListManagement.Import.ContactMappingInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ImportOptions"/> class.
+            </summary>
+            <param name="mappings">The contact mappings.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportOptions.#ctor(Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ImportOptions"/> class.
+            </summary>
+            <param name="mappings">The contact mappings.</param>
+            <param name="requiredFields">The list of required field names.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportOptions.Mappings">
+            <summary>
+            Gets the mapping info dictionary storing the 
+            contact-field-key/index-in-csv pairs.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportOptions.Facets">
+            <summary>
+            Gets the list of facets to import the contact data to. By default that 
+            are "ListSubscriptions", "Emails" and "Personal" facets.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportOptions.RequiredFields">
+            <summary>
+            Gets the list of contact data fields that must not be empty. 
+            Otherwise the data won't be imported.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportOptions.GetRequiredFieldIndexes">
+            <summary>
+            Returns the array of required field indexes used for required field
+            validation.
+            </summary>
+            <returns>The required field indexes.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.ImportSummary">
+            <summary>
+            Collects the contact import statistics.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.ContactsWithoutRequiredFieldsCount">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.UpdatedContactsCount">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.ImportedContactsCount">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.SkippedContactsCount">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.SyncToken">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.Warnings">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ImportSummary.Errors">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportSummary.IncrementContactsWithoutRequiredFieldsCount">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportSummary.IncrementUpdatedContactsCount">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportSummary.IncrementImportedContactsCount">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportSummary.IncrementSkippedContactsCount">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportSummary.AddWarning(System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ImportSummary.AddError(System.String)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.ContactMappingInfo">
+            <summary>
+            Encapsulates raw contact info mapping dictionary.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.#ctor(System.Collections.Generic.IDictionary{System.String,System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ContactMappingInfo"/> class.
+            </summary>
+            <param name="mappings">
+            The mapping dictionary. The dictionary must contain the 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Throws <see cref="T:System.ArgumentException"/> if no 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.#ctor(System.Collections.Generic.IDictionary{System.String,System.Int32},System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ContactMappingInfo"/> class.
+            </summary>
+            <param name="mappings">
+            The mapping dictionary. The dictionary must contain the 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </param>
+            <param name="listId">The list id to subscribe.
+            If not an empty <see cref="T:System.Guid"/>, the imported contacts are 
+            subscribed to that list automatically.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Throws <see cref="T:System.ArgumentException"/> if no 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.#ctor(System.Collections.Generic.IDictionary{System.String,System.Int32},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ContactMappingInfo"/> class.
+            </summary>
+            <param name="mappings">
+            The mapping dictionary. The dictionary must contain the 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </param>
+            <param name="facets">
+            The list of facets retrieved from XConnect for the contact mapping.
+            All the fields that do not belong to these facets will be ignored.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Throws <see cref="T:System.ArgumentException"/> if no 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.#ctor(System.Collections.Generic.IDictionary{System.String,System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ContactMappingInfo"/> class.
+            </summary>
+            <param name="mappings">
+            The mapping dictionary. The dictionary must contain the 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </param>
+            <param name="facets">
+            The list of facets retrieved from XConnect for the contact mapping.
+            All the fields that do not belong to these facets will be ignored.
+            </param>
+            <param name="listId">
+            If not an empty <see cref="T:System.Guid"/>, the imported contacts are 
+            subscribed to that list automatically.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Throws <see cref="T:System.ArgumentException"/> if no 
+            <see cref="F:Sitecore.ListManagement.Constants.IdentifierMappingKey"/> key specified.
+            </exception>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ContactMappingInfo.Facets">
+            <summary>
+            Gets a list of facets to import contact data to. By default that are 
+            "ListSubscriptions", "Emails" and "Personal" facets.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ContactMappingInfo.ListId">
+            <summary>
+            If set, a contact being imported should be subscribed to a list.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Import.ContactMappingInfo.IdentifierIndex">
+            <summary>
+            Gets the Identifier field index in a row from a CSV file.
+            </summary>
+            <returns>The index of the 'Identifier' field.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.GetFieldIndex(System.String)">
+            <summary>
+            Gets the data field index in a row from a CSV file by the field name.
+            </summary>
+            <param name="fieldName">The field name which index is to be discovered.</param>
+            <returns>The index of the field if found; otherwise '-1'.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.GetValue(System.String,System.String[])">
+            <summary>
+            Retrieves a contact property value from the <paramref name="data"/>
+            row retrieved from a CSV file.
+            </summary>
+            <param name="fieldKey">
+            The field key used to retrieve a value index in the <paramref name="data"/> row.
+            </param>
+            <param name="data">The data row from a CSV file.</param>
+            <returns>
+            The retrieved value if mapping is found by a valid non-negative key 
+            that is less then the length of the data row;
+            otherwise null
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.GetIdentifierSourceValue(System.String[])">
+            <summary>
+            Retrieves a contact identifier source property value 
+            from the <paramref name="data"/>
+            row retrieved from a CSV file.
+            </summary>
+            <param name="data">The data row from a CSV file.</param>
+            <returns>
+            The retrieved value if mapping is found by a valid non-negative key 
+            that is less then the length of the data row;
+            otherwise default <see cref="F:Sitecore.ListManagement.Constants.ListManagerIdentifierSource"/> source.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ContactMappingInfo.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.CsvReader">
+            <summary>
+            The stream parser.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvReader.#ctor(Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Ctor for CsvReader
+            </summary>
+            <param name="log">Log storage</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvReader.Read(System.IO.Stream,System.Char)">
+            <summary>
+            Reads a CSV content from the <paramref name="stream"/>.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="lineSeparator">The line separator.</param>
+            <returns>The data from a CSV parsed into string arrays.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvReader.ReadHeaders(System.IO.Stream,System.Char)">
+            <summary>
+            Reads a CSV file headers from the <paramref name="stream"/>.
+            </summary>
+            <param name="stream"></param>
+            <param name="lineSeparator"></param>
+            <returns>The list of CSV file headers.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvReader.Read(System.IO.Stream,System.Char,System.Int32,System.Int32)">
+            <summary>
+            The parse stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="lineSeparator">The line separator.</param>
+            <param name="skipLines">The number of lines to be skipped.</param>
+            <param name="takeLines">The number of lines to be taken.</param>
+            <returns>The <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.CsvReader.GetStreamEncoding(System.IO.Stream)">
+            <summary>
+            Gets the stream encoding.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns>The <see cref="T:System.Text.Encoding"/>.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.StreamContactImporter">
+            <summary>
+            Reads contacts from a CSV stream and imports them into xDB.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.StreamContactImporter.#ctor(Sitecore.ListManagement.Import.IImportContactSource,Sitecore.ListManagement.Import.IContactImporter,Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.StreamContactImporter"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.StreamContactImporter.Import(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions)">
+            <summary>
+            Imports contacts from the <paramref name="stream"/> using mapping 
+            <paramref name="options"/>.
+            </summary>
+            <param name="stream">The stream, typically a CSV file stream.</param>
+            <param name="options">
+            The mapping options matching the contact data fields and their indexes 
+            in a CSV line.</param>
+            <returns>
+            An instance of the <see cref="T:Sitecore.ListManagement.Import.ImportResult"/> with importing 
+            statistics showing how many contacts have been imported or skipped.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.RequiredFieldsFilter">
+            <summary>
+            Guaranties every contact contains all the necessary properties 
+            specified in the <see cref="T:Sitecore.ListManagement.Import.ImportOptions"/>. Contacts with at least
+            one missing required property are skipped and appear in the 
+            <see cref="T:Sitecore.ListManagement.Import.ImportSummary"/> report.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.RequiredFieldsFilter.#ctor(Sitecore.ListManagement.Import.IImportContactSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.RequiredFieldsFilter"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.RequiredFieldsFilter.Read(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Reads contact data from a CSV stream before further importing.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to read the contact data from.</param>
+            <param name="options">The import options containing contact mapping details.</param>
+            <param name="summary">Gathers import statistics.</param>
+            <returns>
+            The contact data represented as a list of string arrays.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Import.ValidIdentifierSourceFilter">
+            <summary>
+            Guaranties that mapping data either doesn't contain identifier source
+            or provided identifier source contains only valid characters. 
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ValidIdentifierSourceFilter.#ctor(Sitecore.ListManagement.Import.IImportContactSource,Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Import.ValidIdentifierSourceFilter"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Import.ValidIdentifierSourceFilter.Read(System.IO.Stream,Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Exceptions.ContactNotFoundException">
+            <summary>
+            The exception that is thrown when a contact 
+            required for an operation is not found.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactNotFoundException"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactNotFoundException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactNotFoundException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactNotFoundException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactNotFoundException.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactNotFoundException"/> class.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException">
+            <summary>
+            The exception that is thrown when a contact list required for an 
+            operation is not found.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactListNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactListNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactListNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactListNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Exceptions.ContactListNotFoundException.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException"/> class.
+            </summary>
+            <param name="listId">The list identifier.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.ExportResult">
+            <summary>
+            The export result.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.ExportResult.ContactsStream">
+            <summary>
+            Gets or sets the contacts stream.
+            </summary>
+            <value>
+            The contacts stream.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.ExportResult.ContactListName">
+            <summary>
+            Gets or sets the name of the contact list.
+            </summary>
+            <value>
+            The name of the contact list.
+            </value>
+        </member>
+        <member name="T:Sitecore.ListManagement.Extensions.EnumerableExtensions">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Extensions.EnumerableExtensions.Batch``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Split the sequence into batches with the given size
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.IOperationIndexingState">
+            <summary>
+            Service for getting state of operation indexing.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.IOperationIndexingState.IsFinished(System.String)">
+            <summary>
+            Returns state of operation indexing with <paramref name="syncToken"/>.
+            </summary>
+            <param name="syncToken">The token that allows to get state of indexing.</param>
+            <returns>true if indexing is finished, otherwise false.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.IListOperationRepository">
+            <summary>
+            The repository that represent persistant storage for list operations.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.IListOperationRepository.GetOperations">
+            <summary>
+            Gets all available list operations.
+            </summary>
+            <returns>
+            Collection of list operations.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.IListOperationRepository.GetListOperations(System.Guid)">
+            <summary>
+            Gets the list operations for specified list.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <returns>
+            Collection of <see cref="T:Sitecore.ListManagement.Operations.ListOperation"/> list operations.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.IListOperationRepository.Complete(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Completes the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.IListOperationRepository.Create(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Creates the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.IListOperationRepository.Update(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Updates the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.ListOperation">
+            <summary>
+            Holds all information about processing/indexing data
+            for specified contact list.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperation.#ctor(System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Operations.ListOperation"/> class.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperation.#ctor(System.Guid,System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Operations.ListOperation"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="listId">The list identifier.</param>
+            <param name="operationType">The type.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.ListId">
+            <summary>
+            Gets the list identifier.
+            </summary>
+            <value>
+            The list identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.OperationType">
+            <summary>
+            Gets the type of operation.
+            </summary>
+            <value>
+            The type operation.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.Id">
+            <summary>
+            Gets the identifier of operation.
+            </summary>
+            <value>
+            The identifier of operation.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.Status">
+            <summary>
+            Gets or sets the status of operation.
+            </summary>
+            <value>
+            The status operation.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.SyncToken">
+            <summary>
+            Gets or sets the synchronization token for current operation.
+            </summary>
+            <value>
+            The synchronization token for current operation.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.ProcessedCount">
+            <summary>
+            Gets or sets the count of processed contacts.
+            </summary>
+            <value>
+            The count of processed contacts.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Operations.ListOperation.TotalCount">
+            <summary>
+            Gets or sets the total count of contacts.
+            </summary>
+            <value>
+            The total count of contacts.
+            </value>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.ListOperationContext">
+            <summary>
+            The context for list operation.
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationContext.#ctor(Sitecore.ListManagement.Operations.IListOperationRepository,System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Operations.ListOperationContext"/> class.
+            </summary>
+            <param name="listOperationRepository">The list operation repository.</param>
+            <param name="listId">The list identifier.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationContext.SetToken(System.Byte[])">
+            <summary>
+            Sets the synchronization token for current operation.
+            </summary>
+            <param name="syncToken">The synchronize token specified as byte array.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationContext.SetToken(System.String)">
+            <summary>
+            Sets the synchronization token for current operation.
+            </summary>
+            <param name="syncToken">The synchronize token specified as string.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationContext.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing,
+            releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationContext.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing">
+            <c>true</c> to release both managed and unmanaged resources; <c>false</c> 
+            to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.ListOperationRepository">
+            <summary>
+            Thre repository that represent persistant storage for list operations based on items.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationRepository.#ctor(Sitecore.Data.Database,Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Operations.ListOperationRepository"/> class.
+            </summary>
+            <param name="database">The database.</param>
+            <param name="log">The log.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationRepository.GetOperations">
+            <summary>
+            Gets all available list operations.
+            </summary>
+            <returns>
+            Collection of list operations.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationRepository.Create(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Creates the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationRepository.Update(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Updates the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationRepository.Complete(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Completes the specified operation.
+            </summary>
+            <param name="operation">The operation.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.ListOperationRepository.GetListOperations(System.Guid)">
+            <summary>
+            Gets the list operations for specified list.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <returns>
+            Collection of <see cref="T:Sitecore.ListManagement.Operations.ListOperation" /> list operations.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.ListOperationRepository.Fields">
+            <summary>
+            Identifiers of list operation fields.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.ListOperationRepository.Fields.ListId">
+            <summary>
+            The identifier of list identifier field.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.ListOperationRepository.Fields.Type">
+            <summary>
+            The identifier of type field.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.ListOperationRepository.Fields.Status">
+            <summary>
+            The identifier of status field.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.ListOperationRepository.Fields.SyncToken">
+            <summary>
+            The identifier of synchronization token field.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.ListOperationRepository.Fields.ProcessedCount">
+            <summary>
+            The identifier of processed count field.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.ListOperationRepository.Fields.TotalCount">
+            <summary>
+            The identifier of total count field.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.OperationStatus">
+            <summary>
+            Status of two-fase list operation.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.OperationStatus.Unknown">
+            <summary>
+            Status of operation is unknown.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.OperationStatus.Processing">
+            <summary>
+            Operation is currently processed by X-Connect.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Operations.OperationStatus.Indexing">
+            <summary>
+            Operation is processed. 
+            Provided data is currently indexed.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Operations.UpdateListOperationsAgent">
+            <summary>
+            The agent that iterates through all list operations and run separate job to check whether indexing of an operation is finished.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.UpdateListOperationsAgent.#ctor(Sitecore.ListManagement.Operations.IListOperationRepository,Sitecore.ListManagement.Operations.IOperationIndexingState,Sitecore.Abstractions.BaseJobManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Operations.UpdateListOperationsAgent"/> class.
+            </summary>
+            <param name="listOperationRepository">The list operation repository.</param>
+            <param name="operationIndexingState">The operation indexing state.</param>
+            <param name="jobManager">The job manager.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.UpdateListOperationsAgent.Run">
+            <summary>
+            Iterates through all list operations and run separate job to check whether indexing of an operation is finished. 
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Operations.UpdateListOperationsAgent.CheckIndexing(Sitecore.ListManagement.Operations.ListOperation)">
+            <summary>
+            Checks whether given <paramref name="listOperation"/> has finished indexing and complete it.
+            </summary>
+            <param name="listOperation">The list operation.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Texts">
+            <summary>
+            Contains messages text.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.CmsOnlyModeErrorMessage">
+            <summary>
+            The CMS only mode error message.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.ConvertedFromSegmentedList">
+            <summary>
+            The converted from segmented list.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.CreatedFromCsv">
+            <summary>
+            The created from csv.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.ListNotFound">
+            <summary>
+            The 'list not found.' phrase.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.OperationIsNotSupportedForSegmentedLists">
+            <summary>
+            The 'Operation is not supported for Segmented list.' phrase.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.OperationIsSupportedForSegmentedListsOnly">
+            <summary>
+            The 'Operation is supported for Segmented lists only.' phrase.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.ContactIdsAreNotProvided">
+            <summary>
+            The contact ids are not provided.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.ContactListIsNotFound">
+            <summary>
+            The contact list is not found.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.UnableToImportContactData0">
+            <summary>
+            The '[List Manager]: Unable to import contact data: {0}' phrase.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Texts.UnionListsDoNoTSupportSegmentedListToBeCombinedWithOtherLists">
+            <summary>
+            The union lists do not support segmented list to be combined with other lists
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.Xdb.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.Shell.Applications.Analytics.AuthoringFeedback.AuthoringFeedback">
+            <summary>
+            Defines the authoring feedback class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.AuthoringFeedback.AuthoringFeedback.Execute(Sitecore.Shell.Framework.Commands.CommandContext)">
+            <summary>
+            Executes the command in the specified context.
+            </summary>
+            <param name="context">
+            The context.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.AuthoringFeedback.AuthoringFeedback.QueryState(Sitecore.Shell.Framework.Commands.CommandContext)">
+            <summary>
+            Queries the state of the command.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>The state of the command.</returns>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Analytics.CampaignField.CampaignFieldPage">
+            <summary>
+            Defines the campaign field page class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Analytics.CampaignField.CampaignFieldPage.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.CampaignField.CampaignFieldPage.OnLoad(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Load"></see> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Analytics.DefaultPage">
+            <summary>
+            Defines the default page class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.DefaultPage.OnInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Init"></see> event to initialize the page.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabase">
+            <summary>
+            Defines the synchronize database class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabase.Execute(Sitecore.Shell.Framework.Commands.CommandContext)">
+            <summary>
+            Executes the command in the specified context.
+            </summary>
+            <param name="context">
+            The context.
+            </param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabase.QueryState(Sitecore.Shell.Framework.Commands.CommandContext)">
+            <summary>
+            Queries the state of the command.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>The state of the command.</returns>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm">
+            <summary>Defines the synchronize database form class.</summary>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.ActionText">
+            <summary>
+            Gets or sets the action text.
+            </summary>
+            <value>The action text.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.ErrorText">
+            <summary>
+            Gets or sets the error text.
+            </summary>
+            <value>The error text.</value>
+        </member>
+        <member name="P:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.ResultText">
+            <summary>
+            Gets or sets the result text.
+            </summary>
+            <value>The result text.</value>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.ActivePageChanged(System.String,System.String)">
+            <summary>Called when the active page has been changed.</summary>
+            <param name="page">The page that has been entered.</param>
+            <param name="oldPage">The page that was left.</param>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.ActivePageChanging(System.String,System.String@)">
+            <summary>Called when the active page is changing.</summary>
+            <param name="page">The page that is being left.</param>
+            <param name="newPage">The new page that is being entered.</param>
+            <returns>True, if the change is allowed, otherwise false.</returns>
+            <remarks>Set the <c>newpage</c> parameter to another page ID to control the
+            path through the wizard pages.</remarks>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.CheckStatus">
+            <summary>Checks the status.</summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.OnLoad(System.EventArgs)">
+            <summary>Raises the load event.</summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <remarks>This method notifies the server control that it should perform actions common to each HTTP
+            request for the page it is associated with, such as setting up a database query. At this
+            stage in the page life-cycle, server controls in the hierarchy are created and initialized,
+            view state is restored, and form controls reflect client-side data. Use the IsPostBack
+            property to determine whether the page is being loaded in response to a client post-back,
+            or if it is being loaded and accessed for the first time.</remarks>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.StartRunning">
+            <summary>Starts the running.</summary>
+        </member>
+        <member name="T:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.Synchronizer">
+            <summary>Defines the synchronizer class.</summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.Synchronizer.Run">
+            <summary>Exports this instance.</summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.Synchronizer.SynchronizeCampaigns">
+            <summary>Synchronizes the campaigns.</summary>
+        </member>
+        <member name="M:Sitecore.Shell.Applications.Analytics.SynchronizeDatabase.SynchronizeDatabaseForm.Synchronizer.SynchronizePageEvents">
+            <summary>Synchronizes the page events.</summary>
+        </member>
+        <member name="T:Sitecore.Xdb.Client.XdbTexts">
+            <summary>Defines the Xdb texts class.</summary>
+        </member>
+        <member name="F:Sitecore.Xdb.Client.XdbTexts.AnalyticsStatus">
+            <summary>"Analytics Status"</summary>
+        </member>
+    </members>
+</doc>

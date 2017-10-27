@@ -1,0 +1,2523 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.FXM.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.FXM.Service.Abstractions.IWebClient">
+            <summary>The IWebClient interface.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Abstractions.IWebClient.Download(System.Uri)">
+            <summary>Downloads data from a specified Url.</summary>
+            <param name="address">The Url to download from.</param>
+            <returns>The response data as a string.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Abstractions.WebClientWrapper">
+            <summary>The web client wrapper.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Abstractions.WebClientWrapper.client">
+            <summary>The web client.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Abstractions.WebClientWrapper.#ctor(System.Net.WebClient)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Abstractions.WebClientWrapper"/> class.</summary>
+            <param name="client">The web client.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Abstractions.WebClientWrapper.Download(System.Uri)">
+            <summary>Downloads data from a given Url.</summary>
+            <param name="address">The Url.</param>
+            <returns>String representation of the response data from the Url request.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute">
+            <summary>
+            Adds a P3P header to the current response if one does not already exist.  The value of the header is obtained
+            from configuration settings.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute.P3PHeaderName">
+            <summary>
+            The name of the P3P header.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute.ValueTemplate">
+            <summary>
+            The template of the full header value to set for each request.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute.value">
+            <summary>
+            The full header value to set for each request.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute"/> class.
+            Creates the attribute in the production scenario.  If no header value is found in the settings, an internal
+            default value is used.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute.#ctor(Sitecore.Abstractions.BaseSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute"/> class.
+            Creates the attribute with the supplied setting implementation.  If no header value is found in the settings, an internal
+            default value is used.
+            </summary>
+            <param name="settings">The settings implementation to use to retrieve the P3P value from.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.ActionFilters.ConfiguredP3PHeaderAttribute.OnActionExecuted(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Adds a P3P header to the response, if one has not already been defined.
+            </summary>
+            <param name="actionExecutedContext">The context.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter">
+            <summary>The robot detection filter.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter._log">
+            <summary>The logger.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter.#ctor(Sitecore.FXM.Abstractions.IFxmLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter"/> class.
+            </summary>
+            <param name="log">The log.</param>
+        </member>
+        <member name="P:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter.AllowMultiple">
+            <summary>
+            Gets a value that indicates whether multiple filters are allowed.
+            </summary>
+            <returns>true if multiple filters are allowed; otherwise, false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>Occurs before the action method is invoked.</summary>
+            <param name="actionContext">The action context.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.ActionFilters.RobotDetectionFilter.IsAnalyticsRobotDetected">
+            <summary>
+            The is analytics robot detected.
+            </summary>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1">
+            <summary>The base anti forgery controller.</summary>
+            <typeparam name="T">A type based on <see cref="T:Sitecore.Services.Core.Model.EntityIdentity"/></typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.#ctor(Sitecore.Services.Core.IRepository{`0})" -->
+        <member name="M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.MetaData">
+            <summary>
+            Gets the MetaData for the service.
+            </summary>
+            <returns>The <see cref="T:System.Net.Http.HttpResponseMessage"/> response.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.CreateEntity(`0)">
+            <summary>
+            Creates a new entity of type T.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Net.Http.HttpResponseMessage"/> response.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.UpdateEntity(`0)">
+            <summary>
+            Updates a specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Net.Http.HttpResponseMessage"/> response.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.Delete(`0)">
+            <summary>
+            Deletes a specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Net.Http.HttpResponseMessage"/> response.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.FetchEntities">
+            <summary>
+            Gets all the entities.
+            </summary>
+            <returns>The <see cref="T:System.Net.Http.HttpResponseMessage"/> response.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.AntiForgeryControllerBase`1.FetchEntity(System.String)">
+            <summary>
+            Gets an entity by its unique identifier.
+            </summary>
+            <param name="id">The entity id.</param>
+            <returns>The <see cref="T:System.Net.Http.HttpResponseMessage"/> response.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.ElementMatcherController">
+            <summary>Defines the ElementMatcherController type.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ElementMatcherController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.FXM.Service.Model.ElementMatcherEntity})">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.ElementMatcherController"/> class.</summary>
+            <param name="repository">The matcher entity repository.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.ElementPlaceholderController">
+            <summary>
+            Represents the ElementPlaceholderController.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ElementPlaceholderController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.FXM.Service.Model.ElementPlaceholderEntity})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.ElementPlaceholderController"/> class.
+            </summary>
+            <param name="entityRepository">The repository.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController">
+            <summary>The beacon controller.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController._log">
+            <summary>The log.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController._sitecoreContext">
+            <summary>
+            The sitecore context.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController._httpContext">
+            <summary>The HTTP context.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity},Sitecore.FXM.Abstractions.IFxmLog,Sitecore.FXM.Abstractions.ISitecoreContext,System.Web.HttpContextBase,Sitecore.Abstractions.BaseCorePipelineManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController"/> class.
+            </summary>
+            <param name="repository">
+            The repository.
+            </param>
+            <param name="log">
+            The log.
+            </param>
+            <param name="context">
+            The Sitecore Context.
+            </param>
+            <param name="httpContext">The HTTP context.</param>
+            <param name="pipeline">The Sitecore pipeline.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GetSublayoutHtml(System.Guid,System.String,System.String)">
+            <summary>
+            Gets the HTMl for a given Sub-layout.
+            </summary>
+            <param name="id">
+            The item identifier.
+            </param>
+            <param name="uniqueId">
+            The unique Id.
+            </param>
+            <param name="placeholder">
+            The containing placeholder key.
+            </param>
+            <returns>
+            The HTML for the Sub-layout control.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GetRenderingHtml(System.Guid,System.String,System.String,System.String)">
+            <summary>
+            Gets the HTMl for a given Sub-layout.
+            </summary>
+            <param name="id">
+            The item identifier.
+            </param>
+            <param name="uniqueId">
+            The unique Id.
+            </param>
+            <param name="placeholder">
+            The containing placeholder key.
+            </param>
+            <param name="dataSource">
+            The data Source.
+            </param>
+            <returns>
+            The HTML for the Sub-layout control.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.UpdateSublayoutHtml(System.Guid,System.String,System.Guid,System.String,System.String)">
+            <summary>Gets the HTML for a given Sub-layout with a Data source specified.</summary>
+            <param name="id">The sub-layout item identifier.</param>
+            <param name="uniqueId">The sub-layout control unique Id.</param>
+            <param name="deviceId">The device Id.</param>
+            <param name="placeholder">The containing placeholder key.</param>
+            <param name="layoutData">The layout data.</param>
+            <returns>The HTML for the sub-layout control.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.UpdateRenderingHtml(System.Guid,System.String,System.Guid,System.String,System.String)">
+            <summary>Gets the HTML for a given Rendering with a layout details specified.</summary>
+            <param name="id">The sub-layout item identifier.</param>
+            <param name="uniqueId">The sub-layout control unique Id.</param>
+            <param name="deviceId">The device Id.</param>
+            <param name="placeholder">The containing placeholder key.</param>
+            <param name="layoutData">The layout data.</param>
+            <returns>The HTML for the sub-layout control.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GenerateSublayoutHtml(System.Guid,System.String,System.String,System.String,System.String)">
+            <summary>Generates the HTML for a given sub-layout.</summary>
+            <param name="id">The item identifier for the sub-layout.</param>
+            <param name="uniqueId">The unique identifier for the sub-layout control.</param>
+            <param name="placeholder">The key of the containing placeholder.</param>
+            <param name="elementReplacerId">The item identifier of the element replacer (placeholder).</param>
+            <param name="dataSource">The item identifier of the sub-layout data source.</param>
+            <returns>The sub-layout HTML.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GenerateSublayoutHtml(Sitecore.Data.Items.RenderingItem,System.String,System.Guid,System.String,Sitecore.Layouts.LayoutDefinition)">
+            <summary>Generates the HTML for a given sub-layout.</summary>
+            <param name="renderingItem">The rendering item.</param>
+            <param name="uniqueId">The unique identifier for the sub-layout control.</param>
+            <param name="deviceId">The device Id.</param>
+            <param name="elementReplacerId">The item identifier of the element replacer (placeholder).</param>
+            <param name="layout">The layout data.</param>
+            <returns>The sub-layout HTML.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GenerateRenderingHtml(System.Guid,System.String,System.String,System.String,System.String)">
+            <summary>Generates the HTML for a given sub-layout.</summary>
+            <param name="id">The item identifier for the rendering.</param>
+            <param name="uniqueId">The unique identifier for the sub-layout control.</param>
+            <param name="placeholder">The key of the containing placeholder.</param>
+            <param name="elementReplacerId">The item identifier of the element replacer (placeholder).</param>
+            <param name="dataSource">The item identifier of the sub-layout data source.</param>
+            <returns>The rendering HTML.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GenerateRenderingHtml(Sitecore.Data.Items.RenderingItem,System.String,System.Guid,System.String,Sitecore.Layouts.LayoutDefinition)">
+            <summary>Generates the HTML for a given sub-layout.</summary>
+            <param name="renderingItem">The rendering item.</param>
+            <param name="uniqueId">The unique identifier for the sub-layout control.</param>
+            <param name="deviceId">The device Id.</param>
+            <param name="elementReplacerId">The item identifier of the element replacer (placeholder).</param>
+            <param name="layout">The layout data.</param>
+            <returns>The sub-layout HTML.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.GetLayoutDefinitionFromJSON(System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Sitecore.Layouts.LayoutDefinition"/> class based on a JSON layout description.
+            </summary>
+            <param name="jsonLayout">The JSON layout data.</param>
+            <returns>An instance of the <see cref="T:Sitecore.Layouts.LayoutDefinition"/> class.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.BuildSublayoutControlTree(Sitecore.Layouts.RenderingReference)">
+            <summary>Construct the control tree for the Sub-layout.</summary>
+            <param name="renderingReference">The sub-layout rendering.</param>
+            <returns>A new instance of the <see cref="T:System.Web.UI.Page"/>class, with the placeholder control attached.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ExperienceEditorComponentController.HandleError(System.Exception)">
+            <summary>Handles the error.</summary>
+            <param name="ex">The ex.</param>
+            <returns>The <see cref="T:System.Web.Http.HttpResponseException"/> to throw.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.ItemActionController">
+            <summary>The beacon controller.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.ItemActionController._log">
+            <summary>The log.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.ItemActionController._repository">
+            <summary>The DomainMatcher Entity _repository.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ItemActionController.#ctor(Sitecore.FXM.Service.Data.IItemActionEntityRepository,Sitecore.FXM.Abstractions.IFxmLog,Sitecore.Abstractions.BaseSiteManager,Sitecore.Abstractions.BaseSettings)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.ItemActionController"/> class.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ItemActionController.Publish(System.Guid,System.String)">
+            <summary>Publishes an item.</summary>
+            <param name="id">The item identifier.</param>
+            <param name="source">The source database (default is 'master').</param>
+            <returns>True if items were published, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ItemActionController.UnPublish(System.Guid,System.String)">
+            <summary>Un-publishes an item.</summary>
+            <param name="id">The item identifier.</param>
+            <param name="source">The source database (default is 'master').</param>
+            <returns>True if items were unpublished, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ItemActionController.Exists(System.Guid,System.String)">
+            <summary>Tests if an item exists in the given database.</summary>
+            <param name="id">The id.</param>
+            <param name="source">The source.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+            <exception cref="T:System.Web.Http.HttpResponseException">Throws if unable to process request.</exception>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.ItemActionController.HandleError(System.Exception)">
+            <summary>Handles the error.</summary>
+            <param name="ex">The ex.</param>
+            <returns>The <see cref="T:System.Web.Http.HttpResponseException"/> to throw.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.DomainMatcherController">
+            <summary>The beacon controller.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.DomainMatcherController._repository">
+            <summary>The DomainMatcher Entity repository.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.DomainMatcherController._sitecoreContext">
+            <summary>
+            The current request context.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.#ctor(Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository,Sitecore.FXM.Abstractions.ISitecoreUserContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.DomainMatcherController"/> class.
+            </summary>
+            <param name="repository">
+            The repository.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.QueryOne(System.String)">
+            <summary>
+            Gets the entity according to the id specified - the sitecore item id of the domain matcher.
+            </summary>
+            <param name="id">The id.</param>
+            <returns>An entity if one exists, null other wise.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.QueryAll(System.Int32,System.Int32,System.String,System.String)">
+            <summary>Gets a list of all Domain Matchers, ordered by name by default.  The format of the order by clause
+            follows that of the OData standard.</summary>
+            <param name="skip">The amount to skip in the result set.</param>
+            <param name="top">The amount of the result set to return.</param>
+            <param name="search">The search term, currently plain text for the name and domain fields.</param>
+            <param name="sorting">The ordering clauses to apply to the result set. Many clauses can be specified, separated by comma.</param>
+            <returns>A page of Domain Matchers.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.QueryAllCreatedBy(System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Gets a list of all domain matchers for the current user, ordered by name by default.  The format of the order by clause
+            follows that of the OData standard.
+            </summary>
+            <param name="createdBy">The user name to filter the result set by.  If none is specified then the current context user is used.</param>
+            <param name="skip">The amount to skip in the result set.</param>
+            <param name="top">The amount of the result set to return.</param>
+            <param name="search">The search term, currently plain text for the name and domain fields.</param>
+            <param name="sorting">The ordering clauses to apply to the result set. Many clauses can be specified, separated by comma.</param>
+            <returns>A page of Domain Matchers.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.AsHttpResponseEx(System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Returns a HttpResponseException with the appropriate status code.
+            </summary>
+            <param name="innerEx">The message parameter is used for the response.</param>
+            <param name="statusCode">The status code to set for the response.</param>
+            <returns>A HttpResponseException.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.AsHttpResponseEx(System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Returns a HttpResponseException with the appropriate status code.
+            </summary>
+            <param name="reason">The message returned in the response.</param>
+            <param name="statusCode">The status code to set for the response.</param>
+            <returns>A HttpResponseException.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.ProcessRequest``1(System.Func{``0})">
+            <summary>
+            Executes the implementation of a request action, handling the errors appropriately.
+            </summary>
+            <typeparam name="T">The return type of the request action.</typeparam>
+            <param name="implementation">The logical implementation of the request action.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.SanitizeSkip(System.Int32)">
+            <summary>
+            Ensures the skip value is at least 0.
+            </summary>
+            <param name="skip">The raw skip value.</param>
+            <returns>The corrected skip value.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.DomainMatcherController.SanitizeTop(System.Int32)">
+            <summary>
+            Ensures the top value is positive, throws an error otherwise.
+            </summary>
+            <param name="top">The raw top value.</param>
+            <returns>A valid top value, otherwise an error is thrown.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.BeaconController">
+            <summary>The beacon controller.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.FXM.Service.Model.BeaconEntity},Sitecore.FXM.Abstractions.IFxmLog,Sitecore.FXM.Abstractions.ITrackerProvider,Sitecore.Abstractions.BaseSettings,System.Web.HttpContextBase,Sitecore.FXM.Service.Abstractions.IWebClient,Sitecore.FXM.Tracking.ITrackingManager,Sitecore.FXM.Tracking.IAnalyticsDefinitionsRepository,Sitecore.FXM.Abstractions.ISitecoreDatabaseContext,Sitecore.Abstractions.BaseCorePipelineManager)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.BeaconController"/> class.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.TrackPageVisit(System.String,System.String,System.String)">
+            <summary>Track a page visit.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.TrackGoal(System.String,System.String,System.String,System.String,System.String)">
+            <summary>Track an Analytics goal.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.TrackOutcome(System.String,System.String,System.String,System.String,System.String)">
+            <summary>Track an Analytics outcome.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.TrackCampaign(System.String,System.String,System.String)">
+            <summary>Track an Analytics campaign.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.TrackEvent(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Track an Analytics event.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.TriggerElementMatch(System.String,System.String,System.String,System.String)">
+            <summary>Triggers the element match.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.Ping(System.Uri)">
+            <summary>Checks a given Url for the presence of a Beacon Script.</summary>
+            <param name="address">The Url.</param>
+            <returns>True if the Beacon script is present, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.BundleAddress">
+            <summary>Gets the URL of the Beacon bundle.</summary>
+            <returns>The Url of the Beacon bundle.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.StopTracking(System.String,System.Boolean,System.String)">
+            <summary>Stops the tracking.  Used for acceptance testing only.</summary>
+            <param name="contactId">The contact identifier.</param>
+            <param name="killContact">Delete the contact cookies etc.</param>
+            <param name="endTime" cref="F:System.DateTimeKind.Unspecified">The end time of the session.</param>
+            <returns>The result <see cref="T:Sitecore.FXM.Service.Model.BeaconEntity" />.</returns>
+            <exception cref="T:System.Web.Http.HttpResponseException">
+            Thrown if the request is invalid.
+            </exception>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.BeaconController.ExecuteTrackingRequest(System.String,System.Func{Sitecore.FXM.Tracking.TrackingResult})">
+            <summary>
+            The execute tracking request.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Controllers.PageMatcherController">
+            <summary>
+            The page matcher controller.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Controllers.PageMatcherController._analyticsDefinitions">
+            <summary>
+            The analytics definitions.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.PageMatcherController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.FXM.Service.Model.PageMatcherEntity},Sitecore.FXM.Tracking.IAnalyticsDefinitionsRepository,Sitecore.FXM.Service.Utils.IFxmEntityConverter,Sitecore.Abstractions.BaseSettings,System.Web.HttpContextBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Controllers.PageMatcherController"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.PageMatcherController.DeployedCampaigns">
+            <summary>
+            The deployed campaigns.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.PageMatcherController.DeployedGoals">
+            <summary>
+            The deployed goals.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.PageMatcherController.DeployedEvents">
+            <summary>
+            The deployed events.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.PageMatcherController.DeployedOutcomes">
+            <summary>
+            The deployed outcomes.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Controllers.PageMatcherController.DeployedProfileCards">
+            <summary>
+            The deployed profile cards.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.AnalyticsEntity">
+            <summary>
+            Models a campaign/goal/event item in the same shape as the a query data source result item
+            in Speak.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.AnalyticsEntity.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.AnalyticsEntity.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.AnalyticsEntity.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository">
+            <summary>
+            Represents the repository for Element Replacer entity.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository._factory">
+            <summary>
+            The configuration.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.#ctor(Sitecore.Abstractions.BaseFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository"/> class.
+            </summary>
+            <param name="factory">The configuration factory.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.Add(Sitecore.FXM.Service.Model.ElementPlaceholderEntity)">
+            <summary>
+            Adds an entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.Update(Sitecore.FXM.Service.Model.ElementPlaceholderEntity)">
+            <summary>
+            Updates an entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.FindById(System.String)">
+            <summary>
+            Gets an entity.
+            </summary>
+            <param name="id">The entity identifier.</param>
+            <returns>The <see cref="T:Sitecore.FXM.Service.Model.ElementPlaceholderEntity"/> instance.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.Delete(Sitecore.FXM.Service.Model.ElementPlaceholderEntity)">
+            <summary>
+            Deletes an entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.Exists(Sitecore.FXM.Service.Model.ElementPlaceholderEntity)">
+            <summary>
+            Gets a value indicating whether an specified entity exists.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>A value indicating whether an specified entity exists.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.GetAll">
+            <summary>
+            Gets all entities.
+            </summary>
+            <returns>The entities list.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.WriteToItem(Sitecore.FXM.Service.Model.ElementPlaceholderEntity,Sitecore.Data.Items.Item)">
+            <summary>
+            Writes the entity data to the item.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementPlaceholderEntityRepository.GetEntityItem(Sitecore.Data.ID)">
+            <summary>
+            Gets the entity item.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>The <see cref="T:Sitecore.Data.Items.Item"/>.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository">
+            <summary>The Experience Editor component entity repository.</summary>
+            <remarks>
+            This class is required by the Asimov <see cref="T:Sitecore.Services.Core.IRepository`1"/> interface.
+            Current functional requirements mean that there are no <see cref="T:Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity"/> objects to manage,
+            so this class exists purely to satisfy the required interface.
+            </remarks>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository.GetAll">
+            <summary>Gets all entities.</summary>
+            <returns>The <see cref="T:System.Linq.IQueryable"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository.FindById(System.String)">
+            <summary>Find an entity by its ID.</summary>
+            <param name="id">The id.</param>
+            <returns>The <see cref="T:Sitecore.FXM.Service.Model.BeaconEntity"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository.Add(Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity)">
+            <summary>Adds an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository.Exists(Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity)">
+            <summary>ValidateRequest the given entity exists.</summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository.Update(Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity)">
+            <summary>Update an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ExperienceEditorComponentEntityRepository.Delete(Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity)">
+            <summary>Delete an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository">
+            <summary>
+            Decorates a repository implementation, and augments any results with Analytics data using appropriate
+            repositories to gather data from the Sitecore analytics system.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository._repository">
+            <summary>
+            The internal repo.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository._analyticsRepository">
+            <summary>
+            The analytics repo.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.#ctor(Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository,Sitecore.FXM.Service.Data.DomainMatchers.Reporting.ISiteAnalyticsRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository"/> class.
+            </summary>
+            <param name="repository">
+            The internal repo.
+            </param>
+            <param name="analyticsRepository">
+            The analytics repo.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.QueryOne(System.String)">
+            <summary>
+            The query one.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.QueryAll(System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            The query all.
+            </summary>
+            <param name="nameSearch">
+            The name search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.QueryAllForUser(System.String,System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            The query all for user.
+            </summary>
+            <param name="userName">
+            The user name.
+            </param>
+            <param name="nameSearch">
+            The name search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.GetAll">
+            <summary>
+            The get all.
+            </summary>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.FindById(System.String)">
+            <summary>
+            The find by id.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.Add(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The add.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.Exists(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The exists.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.Update(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The update.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.Delete(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The delete.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.DecorateWithAnalyticsData(System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Model.DomainMatcherEntity})">
+            <summary>
+            The decorate with analytics data.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <returns>
+            The list of entities.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingAnalyticsRepository.DecorateWithAnalyticsData(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The decorate with analytics data.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository">
+            <summary>
+            Decorates a repository implementation, and augments any query with ordering logic.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.internalRepo">
+            <summary>
+            The internal repo.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.#ctor(Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository"/> class, taking the repository
+            instance it is to decorate.
+            </summary>
+            <param name="internalRepo">The decorated repository instance.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.QueryOne(System.String)">
+            <summary>
+            The query one.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.QueryAll(System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            The query all.
+            </summary>
+            <param name="nameSearch">
+            The name search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.QueryAllForUser(System.String,System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            The query all for user.
+            </summary>
+            <param name="userName">
+            The user name.
+            </param>
+            <param name="nameSearch">
+            The name search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.GetAll">
+            <summary>
+            The get all.
+            </summary>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.FindById(System.String)">
+            <summary>
+            The find by id.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.Add(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The add.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.Exists(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The exists.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.Update(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The update.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingOrderingRepository.Delete(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The delete.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository">
+            <summary>
+            Decorates a repository implementation, and augments any entities returned with publishing data.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository._repository">
+            <summary>
+            The internal repo.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository._searchPublishedRepository">
+            <summary>
+            The published (web) repo object of domain matchers.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.#ctor(Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository,Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.IDomainMatcherSearchRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository"/> class.
+            </summary>
+            <param name="repository">
+            The internal repo.
+            </param>
+            <param name="searchPublishedRepository">
+            The published search repository.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.QueryOne(System.String)">
+            <summary>
+            The query one.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.QueryAll(System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            The query all.
+            </summary>
+            <param name="nameSearch">
+            The name search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.QueryAllForUser(System.String,System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            The query all for user.
+            </summary>
+            <param name="userName">
+            The user name.
+            </param>
+            <param name="nameSearch">
+            The name search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.GetAll">
+            <summary>
+            The get all.
+            </summary>
+            <returns>
+            The <see cref="T:System.Linq.IQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.FindById(System.String)">
+            <summary>
+            The find by id.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.Add(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The add.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.Exists(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The exists.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.Update(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The update.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.Delete(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The delete.
+            </summary>
+            <param name="entity">
+            The entity.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.DecorateWithPublishData(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            The decorate with publish data.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DecoratingPublishDataRepository.DecorateWithPublishData(System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Model.DomainMatcherEntity})">
+            <summary>
+            The decorate with publish data.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <returns>
+            The list of entities.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.ISiteAnalyticsRepository">
+            <summary>
+            Defines the methods that provide data from the Sitecore analytics system for domain matchers.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.ISiteAnalyticsRepository.GetTotalSiteSessions(System.String)">
+            <summary>
+            Determines the number of unique sessions that have been recorded for the given site.
+            </summary>
+            <param name="siteName">The name of the site for which to count the sessions.</param>
+            <returns>The number of unique sessions.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository">
+            <summary>
+            The implementation that provides data from the Sitecore analytics system for domain matchers.  Currently this queries into the SQL analytics database.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository.TotalSiteSessionsQuery">
+            <summary>
+            The total site sessions query.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository._reportingService">
+            <summary>
+            Experience Analytics reporting server
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository._log">
+            <summary>
+            FXM Log
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository.#ctor(Sitecore.Abstractions.BaseFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository"/> class.
+            </summary>
+            <param name="factory">
+            The Sitecore factory.
+            </param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository.#ctor(Sitecore.Abstractions.BaseFactory,Sitecore.ExperienceAnalytics.Api.IReportingService,Sitecore.FXM.Abstractions.IFxmLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository"/> class.
+            </summary>
+            <param name="factory"></param>
+            <param name="reportingService"></param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.Reporting.SiteAnalyticsRepository.GetTotalSiteSessions(System.String)">
+            <summary>
+            The get total site sessions.
+            </summary>
+            <param name="siteName">
+            The site name.
+            </param>
+            <returns>
+            The <see cref="T:System.Int32"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.CreatedBy">
+            <summary>
+            Returns the value of the "createdBy" field from the item field (to access the standard values value).
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.CreatedBy.ComputeFieldValue(Sitecore.ContentSearch.IIndexable)">
+            <summary>
+            Gets the created by field for the item.
+            </summary>
+            <param name="indexable">
+            Object to index.
+            </param>
+            <returns>
+            The user name that created the item.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.DomainMatcherRule">
+            <summary>
+            Determines a computed index field with a string representation of the matcher rule field in a domain matcher.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.DomainMatcherRule.ComputeFieldValue(Sitecore.ContentSearch.IIndexable)">
+            <summary>
+            The compute field value.
+            </summary>
+            <param name="indexable">
+            Object to index.
+            </param>
+            <returns>
+            The <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.Revision">
+            <summary>
+            Determines a computed index field for the current revision identifier of an item.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.Revision.ComputeFieldValue(Sitecore.ContentSearch.IIndexable)">
+            <summary>
+            The compute field value.
+            </summary>
+            <param name="indexable">
+            Object to index.
+            </param>
+            <returns>
+            The <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.UpdatedBy">
+            <summary>
+            Determines a computed index field for the username of the last item update.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.ComputedFields.UpdatedBy.ComputeFieldValue(Sitecore.ContentSearch.IIndexable)">
+            <summary>
+            The compute field value.
+            </summary>
+            <param name="indexable">
+            Object to index.
+            </param>
+            <returns>
+            The <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem">
+            <summary>
+            The domain matcher search item.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.createdDate">
+            <summary>The created date.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.updatedDate">
+            <summary>The updated date.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.Url">
+            <summary>
+            Gets or sets the url.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.Name">
+            <summary>
+            Gets or sets the domain matcher name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.Version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.Revision">
+            <summary>
+            Gets or sets the revision.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.Domain">
+            <summary>
+            Gets or sets the domain.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.CreatedBy">
+            <summary>
+            Gets or sets the created by.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.UpdatedBy">
+            <summary>
+            Gets or sets the updated by.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.CreatedDate">
+            <summary>
+            Gets or sets the created date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem.UpdatedDate">
+            <summary>
+            Gets or sets the updated date.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherRepoType">
+            <summary>
+            The domain matcher repo type.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherRepoType.Master">
+            <summary>
+            The master database.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherRepoType.Web">
+            <summary>
+            The web database.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository">
+            <summary>
+            Implements a Domain Matcher repository on top of a search index.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository.repoType">
+            <summary>
+            The role of the index to target.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository.#ctor(Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherRepoType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository"/> class.
+            </summary>
+            <param name="repoType">The role of the index to target.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository.Get(System.Guid)">
+            <summary>
+            Gets and individual domain matcher for the id.  Returns null if no matcher exists.  If multiple
+            versions of the item exist, the latest version is returned.
+            </summary>
+            <param name="id">Domain matcher id.</param>
+            <returns>A Domain matcher.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository.Get(System.String)">
+            <summary>
+            The get.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository.GetAll(System.Linq.Expressions.Expression{System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Boolean}},System.Linq.Expressions.Expression{System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Boolean}},System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Object},System.Int32,System.Int32)">
+            <summary>
+            Gets a set of domain matchers honoring filter, order and paging parameters.  The latest version of
+            each domain matcher is returned.
+            </summary>
+            <param name="filter">
+            Filtering criteria for the query.
+            </param>
+            <param name="search">
+            Searching criteria for the query.
+            </param>
+            <param name="orderBy">
+            Specifies the order of the results.
+            </param>
+            <param name="skip">
+            Amount to skip.
+            </param>
+            <param name="top">
+            Amount to take.
+            </param>
+            <returns>
+            List of matcher search items.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.DomainMatcherSearchRepository.CreateDomainIndexContext">
+            <summary>
+            The create domain index context.
+            </summary>
+            <returns>
+            The <see cref="T:Sitecore.ContentSearch.IProviderSearchContext"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.IDomainMatcherSearchRepository">
+            <summary>
+            Defines the behavior of a domain matcher repo based on a search index.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.IDomainMatcherSearchRepository.Get(System.Guid)">
+            <summary>
+            Gets and individual domain matcher for the id.  Returns null if no matcher exists.
+            </summary>
+            <param name="id">Domain matcher id.</param>
+            <returns>A Domain matcher.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.IDomainMatcherSearchRepository.Get(System.String)">
+            <summary>
+            The get.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.IDomainMatcherSearchRepository.GetAll(System.Linq.Expressions.Expression{System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Boolean}},System.Linq.Expressions.Expression{System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Boolean}},System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Object},System.Int32,System.Int32)">
+            <summary>
+            Gets a set of domain matchers honoring filter, order and paging parameters.
+            </summary>
+            <param name="filter">
+            Filtering criteria for the query.
+            </param>
+            <param name="search">
+            The search.
+            </param>
+            <param name="orderBy">
+            Specifies the order of the results.
+            </param>
+            <param name="skip">
+            Amount to skip.
+            </param>
+            <param name="top">
+            Amount to take.
+            </param>
+            <returns>
+            All domain matcher search items.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityFactory">
+            <summary>
+            Defines methods for creating DomainMatcherEntity's from data from the databases.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityFactory.Create(Sitecore.FXM.Service.Model.DomainMatcherEntity,Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem)">
+            <summary>
+            Creates a domain matcher entity from a master version of the domain, and a published version.
+            </summary>
+            <param name="masterDomain">The domain entity created from data in the master database.</param>
+            <param name="publishedDomain">Domain data from the web database.</param>
+            <returns>A DomainMatcherEntity representing the state of the domain item in the system.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityFactory.CreateFromMaster(Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem)">
+            <summary>
+            Creates a domain matcher entity from domain data retrieved from the master database.
+            Some of the properties relating to publishing therefor cannot be populated reliably.
+            </summary>
+            <param name="domain">The domain data from the database.</param>
+            <returns>A DomainMatcherEntity representing the state of the domain item in the system.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository">
+            <summary>The domain matcher entity repository.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository._factory">
+            <summary>The Sitecore configuration factory.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository._searchMasterRepository">
+            <summary>
+            The master repo object of domain matchers.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.#ctor(Sitecore.Abstractions.BaseFactory,Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Repositories.IDomainMatcherSearchRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository"/> class.
+            </summary>
+            <param name="factory">The sitecore configuration factory.</param>
+            <param name="searchMasterRepository">The master repo object of domain matchers.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.QueryOne(System.String)">
+            <summary>
+            The query one.
+            </summary>
+            <param name="id">
+            The id.
+            </param>
+            <returns>
+            The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.QueryAll(System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            Queries all domain matchers in the repository, ordered by name.
+            </summary>
+            <param name="nameSearch">
+            Search criteria applied to the name field for the source query.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            A collection of Domain matchers.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.QueryAllForUser(System.String,System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            Queries all the domain matchers for a given user, ordered by name.
+            </summary>
+            <param name="userName">
+            A sitecore user name.
+            </param>
+            <param name="nameSearch">
+            Search criteria applied to the name field for the source query.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            A collection of Domain matchers.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.QueryAll(System.Linq.Expressions.Expression{System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Boolean}},System.Linq.Expressions.Expression{System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Boolean}},System.Func{Sitecore.FXM.Service.Data.DomainMatchers.ContentSearch.Model.DomainMatcherSearchItem,System.Object},System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}},System.Int32,System.Int32)">
+            <summary>
+            Queries all the domain matchers using the appropriate criteria.
+            </summary>
+            <param name="sourceFilter">Filtering criteria for the source query.</param>
+            <param name="searchQuery">Search criteria for the source query.</param>
+            <param name="sourceOrderBy">Ordering (ascending) criteria for the initial source query.</param>
+            <param name="resultOrdering">Ordering (ascending) criteria for the retrieved result set.</param>
+            <param name="sourceSkip">The amount to skip in the initial source result set.</param>
+            <param name="sourceTop">The amount of the initial source result set to return.</param>
+            <returns>A collection of Domain matchers.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.GetAll">
+            <summary>Gets all entities.</summary>
+            <returns>The <see cref="T:System.Linq.IQueryable"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.FindById(System.String)">
+            <summary>Find an entity by its ID.</summary>
+            <param name="id">The id.</param>
+            <returns>The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.Add(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>Adds an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.Exists(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>ValidateRequest the given entity exists.</summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.Update(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>Update an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.Delete(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>Delete an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.GetDomainMatcherItem(System.String,Sitecore.Data.Database)">
+            <summary>Gets a specified DomainMatcher item by its Sitecore ID.</summary>
+            <param name="itemId">The item ID.</param>
+            <param name="database">The database.</param>
+            <returns>The Sitecore item.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.DomainMatcherEntityRepository.GetContentDatabase">
+            <summary>
+            The get content database.
+            </summary>
+            <returns>
+            The <see cref="!:IDatabase"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository">
+            <summary>The DomainMatcherEntityRepository interface.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository.QueryOne(System.String)">
+            <summary>
+            Finds a domain matcher with the specified Id.  Null is returned if none
+            exists.
+            </summary>
+            <param name="id">The id.</param>
+            <returns>The domain matcher.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository.QueryAll(System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            Queries all domain matchers in the repository, with an optional ordering specified.
+            </summary>
+            <param name="nameSearch">Name to search.</param>
+            <param name="ordering">An optional ordering to dictate the order of the results.</param>
+            <returns>A collection of Domain matchers.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DomainMatchers.IDomainMatcherEntityRepository.QueryAllForUser(System.String,System.String,System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{Sitecore.FXM.Service.Model.DomainMatcherEntity}})">
+            <summary>
+            Queries all the domain matchers for a given user, ordered by name.
+            </summary>
+            <param name="userName">
+            A sitecore user name.
+            </param>
+            <param name="nameSearch">
+            Name to search.
+            </param>
+            <param name="ordering">
+            The ordering.
+            </param>
+            <returns>
+            A collection of Domain matchers.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata`1">
+            <summary>
+            Models info on an ordering operation.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata`1.PropertyName">
+            <summary>
+            Gets the verified property name of T.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata`1.Direction">
+            <summary>
+            Gets the direction of the ordering.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata`1.ParseOrderBy(System.String)">
+            <summary>
+            Parses an OData style ordering string into one or more order metadata objects.  The format follows that of the ODATA standard.
+            </summary>
+            <param name="orderByString">The raw order by string.</param>
+            <returns>One or more metadata objects describing the orderings specified.</returns>
+            <remarks>
+            Example formats of the ordering string are:
+            "name"
+            "name asc"
+            "name desc"
+            "Name DEsc (case insensitive)"
+            "name, CreatedDate desc (asc by default)"
+            "name desc, CreatedDate".
+            </remarks>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata`1.ParseSorting(System.String)">
+            <summary>
+            Parses a Sitecore formatted raw ordering string into one or more order metadata objects.  
+            The format follows that of the Sitecore Item web API.
+            </summary>
+            <param name="sortingString">The raw order by string.</param>
+            <returns>One or more metadata objects describing the orderings specified.</returns>
+            <remarks>
+            Example formats of the ordering string are:
+            name
+            aname
+            dname 
+            DName(case insensitive)
+            name|dCreatedDate (asc by default)
+            dname| CreatedDate
+            etc.
+            </remarks>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions">
+            <summary>
+            Query extensions.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            The order by.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="propertyName">
+            The property name.
+            </param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>
+            The <see cref="T:System.Linq.IOrderedQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions.OrderByDescending``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            The order by descending.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="propertyName">
+            The property name.
+            </param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>
+            The <see cref="T:System.Linq.IOrderedQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions.ThenBy``1(System.Linq.IOrderedQueryable{``0},System.String)">
+            <summary>
+            The then by.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="propertyName">
+            The property name.
+            </param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>
+            The <see cref="T:System.Linq.IOrderedQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions.ThenByDescending``1(System.Linq.IOrderedQueryable{``0},System.String)">
+            <summary>
+            The then by descending.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="propertyName">
+            The property name.
+            </param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>
+            The <see cref="T:System.Linq.IOrderedQueryable"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions.ApplyOrdering``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByMetadata{``0}})">
+            <summary>
+            Builds a query with operations specified in the metadata, including one or more ordering expressions.
+            </summary>
+            <typeparam name="T">The result type.</typeparam>
+            <param name="query">The original query to adorn with new operations.</param>
+            <param name="metadata">Describes the operations to add to the query.</param>
+            <returns>An enumerable form of the query passed in.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.DynamicApiQuery.QueryableExtensions.OrderingHelper``1(System.Linq.IQueryable{``0},System.String,System.Boolean,System.Boolean)">
+            <summary>
+            The ordering helper.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="propertyName">
+            The property name.
+            </param>
+            <param name="descending">
+            The descending.
+            </param>
+            <param name="anotherLevel">
+            The another level.
+            </param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>
+            The <see cref="T:System.Linq.IOrderedQueryable"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByDirectionType">
+            <summary>
+            The directions that can be specified in dynamic ordering API calls.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByDirectionType.Asc">
+            <summary>
+            Ascending order.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.DynamicApiQuery.OrderByDirectionType.Desc">
+            <summary>
+            Descending order.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.IWebProxy">
+            <summary>
+            Defines a web proxy that can be used to make requests to resources over http and return
+            the Http response, the content of which can be modified so that hyperlinks for example,
+            point at their resources via the proxy.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.IWebProxy.MakeRequest(System.String,System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Performs a HTTP request.
+            </summary>
+            <param name="serviceAddressTemplate">The address template of the current service, used when modifying 
+            links to external resources in the response.</param>
+            <param name="request">The request to make.</param>
+            <returns>The HTTP response to the external resource.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository">
+            <summary>Defines the ElementMatcherEntityRepository type.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.#ctor(Sitecore.FXM.Abstractions.ISitecoreDatabaseContext,Sitecore.Abstractions.BaseFactory,Sitecore.FXM.Tracking.IAnalyticsDefinitionsRepository)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository"/> class.</summary>
+            <param name="databaseContext">The database context.</param>
+            <param name="configuration">The configuration.</param>
+            <param name="analyticsDefinitions"></param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.GetAll">
+            <summary>Gets all entities.</summary>
+            <returns>The <see cref="T:System.Linq.IQueryable"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.FindById(System.String)">
+            <summary>Find an entity by its ID.</summary>
+            <param name="id">The id.</param>
+            <returns>The <see cref="T:Sitecore.FXM.Service.Model.ElementMatcherEntity"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.Add(Sitecore.FXM.Service.Model.ElementMatcherEntity)">
+            <summary>Adds an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.Exists(Sitecore.FXM.Service.Model.ElementMatcherEntity)">
+            <summary>ValidateRequest the given entity exists.</summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.Update(Sitecore.FXM.Service.Model.ElementMatcherEntity)">
+            <summary>Update an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.Delete(Sitecore.FXM.Service.Model.ElementMatcherEntity)">
+            <summary>Delete an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.GetElementMatcherItem(System.String)">
+            <summary>
+            Gets a specified DomainMatcher item by its Sitecore ID.
+            </summary>
+            <param name="itemId">The item ID.</param>
+            <returns>The Sitecore item.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.WriteToItem(Sitecore.FXM.Service.Model.ElementMatcherEntity,Sitecore.Data.Items.Item)">
+            <summary>Writes the entity data to the item.</summary>
+            <param name="entity">The entity.</param>
+            <param name="writeItem">The write item.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ElementMatcherEntityRepository.GetContentDatabase">
+            <summary>
+            The get content database.
+            </summary>
+            <returns>
+            The <see cref="T:Sitecore.Data.Database"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.WebProxy">
+            <summary>
+            The implementation of a HTTP proxy, that requests external context and returns the response.
+            The request and response can both be modified via pipelines.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.WebProxy.CorePipeline">
+            <summary>The Sitecore Pipeline.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.WebProxy.#ctor(Sitecore.Abstractions.BaseCorePipelineManager)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.WebProxy"/> class.</summary>
+            <param name="corePipeline">The Sitecore Pipeline.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.WebProxy.MakeRequest(System.String,System.Net.Http.HttpRequestMessage)">
+            <summary>Makes an HTTP request through the Web Proxy component.</summary>
+            <param name="serviceAddressTemplate">The base URL of the proxy service.</param>
+            <param name="request">The HTTP request to perform through the proxy.</param>
+            <returns>The HTTP response message.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.WebProxy.PerformRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>Makes an HTTP request through the Web Proxy component.</summary>
+            <param name="request">The HTTP request to perform through the proxy.</param>
+            <returns>The HTTP response message.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.WebProxy.BuildProxyRequest(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Builds a function that when executed will perform the http request and return the response. This is
+            achieved by executing a pipeline.
+            </summary>
+            <param name="request">The original Http request to make.</param>
+            <returns>A function that will perform the request.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.WebProxy.ProcessResponse(System.String,System.Net.Http.HttpRequestMessage,System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Modifies the response body via a pipeline, and returns the modified response.
+            </summary>
+            <param name="serviceAddressTemplate">The address template of the external service.</param>
+            <param name="request">The Http request that yielded the response.</param>
+            <param name="response">The initial Http response yielded from the request.</param>
+            <returns>The modified Http response.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.IItemActionEntityRepository">
+            <summary>The IItemActionEntityRepository interface.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.IItemActionEntityRepository.Publish(Sitecore.Data.ID,System.String)">
+            <summary>Publishes a specified Item to all publishing targets.</summary>
+            <param name="id">The item id.</param>
+            <param name="database">The content database name.</param>
+            <returns>True if item was published, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.IItemActionEntityRepository.UnPublish(Sitecore.Data.ID,System.String)">
+            <summary>Un-publishes a specified Item from all publishing targets.</summary>
+            <param name="id">The item id.</param>
+            <param name="database">The content database name.</param>
+            <returns>True if item was unpublished, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.IItemActionEntityRepository.GetItem(Sitecore.Data.ID,System.String)">
+            <summary>Gets an an item from the given database.</summary>
+            <param name="id">The id.</param>
+            <param name="database">The source.</param>
+            <returns>The <see cref="T:Sitecore.Data.Items.Item"/>.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.ItemActionEntityRepository">
+            <summary>The item action entity repository.</summary>
+            <remarks>
+            This class is required by the Asimov <see cref="T:Sitecore.Services.Core.IRepository`1"/> interface.
+            Current functional requirements mean that there are no <see cref="T:Sitecore.FXM.Service.Model.ItemActionEntity"/> objects to manage,
+            so this class exists purely to satisfy the required interface.
+            </remarks>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Data.ItemActionEntityRepository._factory">
+            <summary>The Sitecore configuration factory.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.#ctor(Sitecore.Abstractions.BaseFactory)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.ItemActionEntityRepository"/> class.</summary>
+            <param name="factory">The Sitecore configuration factory.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.GetAll">
+            <summary>Gets all entities.</summary>
+            <returns>The <see cref="T:System.Linq.IQueryable"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.FindById(System.String)">
+            <summary>Find an entity by its ID.</summary>
+            <param name="id">The id.</param>
+            <returns>Null - there are no entities.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.Add(Sitecore.FXM.Service.Model.ItemActionEntity)">
+            <summary>Adds an entity.</summary>
+            <param name="entity">The entity.</param>
+            <remarks>This does not perform any actions - there are no entities.</remarks>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.Exists(Sitecore.FXM.Service.Model.ItemActionEntity)">
+            <summary>ValidateRequest the given entity exists.</summary>
+            <param name="entity">The entity.</param>
+            <returns>False - there are no entities.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.Update(Sitecore.FXM.Service.Model.ItemActionEntity)">
+            <summary>Update an entity.</summary>
+            <param name="entity">The entity.</param>
+            <remarks>This does not perform any actions - there are no entities.</remarks>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.Delete(Sitecore.FXM.Service.Model.ItemActionEntity)">
+            <summary>Delete an entity.</summary>
+            <param name="entity">The entity.</param>
+            <remarks>This does not perform any actions - there are no entities.</remarks>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.Publish(Sitecore.Data.ID,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.UnPublish(Sitecore.Data.ID,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.ItemActionEntityRepository.GetItem(Sitecore.Data.ID,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.BeaconEntityRepository">
+            <summary>The beacon entity repository.</summary>
+            <remarks>
+            This class is required by the Asimov <see cref="T:Sitecore.Services.Core.IRepository`1"/> interface.
+            Current functional requirements mean that there are no <see cref="T:Sitecore.FXM.Service.Model.BeaconEntity"/> objects to manage,
+            so this class exists purely to satisfy the required interface.
+            </remarks>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.BeaconEntityRepository.GetAll">
+            <summary>Gets all entities.</summary>
+            <returns>The <see cref="T:System.Linq.IQueryable"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.BeaconEntityRepository.FindById(System.String)">
+            <summary>Find an entity by its ID.</summary>
+            <param name="id">The id.</param>
+            <returns>The <see cref="T:Sitecore.FXM.Service.Model.BeaconEntity"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.BeaconEntityRepository.Add(Sitecore.FXM.Service.Model.BeaconEntity)">
+            <summary>Adds an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.BeaconEntityRepository.Exists(Sitecore.FXM.Service.Model.BeaconEntity)">
+            <summary>ValidateRequest the given entity exists.</summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.BeaconEntityRepository.Update(Sitecore.FXM.Service.Model.BeaconEntity)">
+            <summary>Update an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.BeaconEntityRepository.Delete(Sitecore.FXM.Service.Model.BeaconEntity)">
+            <summary>Delete an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Data.PageMatcherEntityRepository">
+            <summary>The page matcher entity repository.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.#ctor(Sitecore.FXM.Abstractions.ISitecoreDatabaseContext,Sitecore.Abstractions.BaseFactory,Sitecore.FXM.Tracking.IAnalyticsDefinitionsRepository)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Data.PageMatcherEntityRepository"/> class.</summary>
+            <param name="context">The context.</param>
+            <param name="factory">The configuration.</param>
+            <param name="analyticsDefinitions">Analytics definitions repository</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.GetAll">
+            <summary>Gets all entities.</summary>
+            <returns>The <see cref="T:System.Linq.IQueryable"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.FindById(System.String)">
+            <summary>Find an entity by its ID.</summary>
+            <param name="id">The id.</param>
+            <returns>The <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.Add(Sitecore.FXM.Service.Model.PageMatcherEntity)">
+            <summary>Adds an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.Exists(Sitecore.FXM.Service.Model.PageMatcherEntity)">
+            <summary>ValidateRequest the given entity exists.</summary>
+            <param name="entity">The entity.</param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.Update(Sitecore.FXM.Service.Model.PageMatcherEntity)">
+            <summary>Update an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.Delete(Sitecore.FXM.Service.Model.PageMatcherEntity)">
+            <summary>Delete an entity.</summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.GetPageMatcherItem(System.String)">
+            <summary>
+            Gets a specified DomainMatcher item by its Sitecore ID.
+            </summary>
+            <param name="itemId">The item ID.</param>
+            <returns>The Sitecore item.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.WriteToItem(Sitecore.FXM.Service.Model.PageMatcherEntity,Sitecore.Data.Items.Item)">
+            <summary>Writes the entity data to the item.</summary>
+            <param name="entity">The entity.</param>
+            <param name="writeItem">The write item.</param>
+            <exception>Out of Range. <cref>System.ArgumentOutOfRangeException</cref>
+            </exception>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Data.PageMatcherEntityRepository.GetContentDatabase">
+            <summary>
+            The get content database.
+            </summary>
+            <returns>
+            The <see cref="T:Sitecore.Data.Database"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.ElementPlaceholderEntity">
+            <summary>
+            Represents the element placeholder entity.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementPlaceholderEntity.Selector">
+            <summary>
+            Gets or sets the selector.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementPlaceholderEntity.Position">
+            <summary>
+            Gets or sets the position.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.ISpeakGridable">
+            <summary>
+            The SPEAK grid interface.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ISpeakGridable.itemId">
+            <summary>
+            Gets the item id.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.ItemActionEntity">
+            <summary>The ItemAction Entity model.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.DisplayName">
+            <summary>
+            Gets or sets the item display name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.TemplateId">
+            <summary>
+            Gets or sets the template identifier.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.TemplateName">
+            <summary>
+            Gets or sets the template name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.ParentId">
+            <summary>
+            Gets or sets the parent identifier.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.Version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ItemActionEntity.Revision">
+            <summary>
+            Gets or sets the revision.
+            </summary>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.DomainMatcherEntity">
+            <summary>The Domain Matcher Entity model.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.DomainMatcherEntity.createdDate">
+            <summary>The created date.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.DomainMatcherEntity.updatedDate">
+            <summary>The updated date.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.DomainMatcherEntity.publishedUpdatedDate">
+            <summary>The published updated date.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.itemId">
+            <summary>
+            Gets the item id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.Name">
+            <summary>
+            Gets or sets the domain matcher name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.Domain">
+            <summary>
+            Gets or sets the domain.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.LatestPublished">
+            <summary>
+            Gets or sets a value indicating whether or not the domain matcher is active.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.LatestPublishedFormated">
+            <summary>
+            Gets the latest published formatted.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.PublishedAtAll">
+            <summary>
+            Gets or sets a value indicating whether published at all.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.CreatedBy">
+            <summary>
+            Gets or sets the created by.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.CreatedDate">
+            <summary>
+            Gets or sets the created date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.UpdatedDate">
+            <summary>
+            Gets or sets the updated date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.UpdatedDateFormatted">
+            <summary>
+            Gets the updated date formatted.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.PublishedUpdatedDate">
+            <summary>
+            Gets or sets the published updated date.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.PublishedVersion">
+            <summary>
+            Gets or sets the published version.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.PublishedVersionFormatted">
+            <summary>
+            Gets the published version formatted.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.MasterVersion">
+            <summary>
+            Gets or sets the master version.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.Revision">
+            <summary>
+            Gets or sets the revision.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.DomainMatcherEntity.TotalVisits">
+            <summary>
+            Gets or sets the total visits.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.DomainMatcherEntity.Equals(Sitecore.FXM.Service.Model.DomainMatcherEntity)">
+            <summary>
+            Compares instance of <see cref="T:Sitecore.FXM.Service.Model.DomainMatcherEntity"/> to another instance.
+            </summary>
+            <param name="other">The object to compare to.</param>
+            <returns>True if the objects are equal, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.DomainMatcherEntity.GetHashCode">
+            <summary>
+            Gets the Hash code.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.BeaconEntity">
+            <summary>The Beacon Entity model.</summary>  
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.BeaconEntity.contactExpires">
+            <summary>The contact expires.</summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.ContactId">
+            <summary>
+            Gets or sets the analytics Contact Id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.SessionId">
+            <summary>
+            Gets or sets the Analytics Session Id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.ContactExpires">
+            <summary>
+            Gets or sets the date on which the contact Id should expire on the client.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.SessionPath">
+            <summary>
+            Gets or sets the path for which the session Id should be stored against on the client.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.ElementMatches">
+            <summary>Gets or sets the element matches.</summary>
+            <value>The element matches.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.Language">
+            <summary>Gets or sets the language.</summary>
+            <value>The language.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.BeaconEntity.DoNotTrack">
+            <summary>
+            Gets or sets a value indicating whether [do not track].
+            </summary>
+            <value><c>true</c> if [do not track]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.BeaconEntity.op_Explicit(Sitecore.FXM.Tracking.TrackingResult)~Sitecore.FXM.Service.Model.BeaconEntity">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Sitecore.FXM.Tracking.TrackingResult"/> to <see cref="T:Sitecore.FXM.Service.Model.BeaconEntity"/>.
+            </summary>
+            <param name="trackingResult">The trackingResult.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.ElementMatcherEntity">
+            <summary>Defines the Element matcher entity type.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.ElementMatcherEntity.profileIds">
+            <summary>The profile Ids.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.ElementMatcherEntity.goalIds">
+            <summary>The goal IDs.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.ElementMatcherEntity.eventIds">
+            <summary>The event IDs.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.ElementMatcherEntity.campaignIds">
+            <summary>The campaign IDs.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.ElementMatcherEntity.outcomeIds">
+            <summary>
+            The outcome IDs.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.ElementMatcherEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Model.ElementMatcherEntity"/> class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.Name">
+            <summary>
+            Gets or sets the page matcher name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.IsActive">
+            <summary>
+            Gets or sets a value indicating whether or not the page matcher is active.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.ParentId">
+            <summary>
+            Gets or sets the page matcher's parent Id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.ProfileIds">
+            <summary>Gets or sets the profile ids.</summary>
+            <value>The profile ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.GoalIds">
+            <summary>Gets or sets the goal ids.</summary>
+            <value>The goal ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.EventIds">
+            <summary>Gets or sets the event ids.</summary>
+            <value>The event ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.CampaignIds">
+            <summary>Gets or sets the campaign ids.</summary>
+            <value>The campaign ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.OutcomeIds">
+            <summary>
+            Gets or sets the outcome ids.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.TemplateId">
+            <summary>
+            Gets or sets the template identifier.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.ElementMatcherEntity.Selector">
+            <summary>
+            Gets or sets the selector.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.ElementMatcherEntity.Equals(Sitecore.FXM.Service.Model.ElementMatcherEntity)">
+            <summary>
+            Compares instance of <see cref="T:Sitecore.FXM.Service.Model.PageMatcherEntity"/> to another instance.
+            </summary>
+            <param name="other">The object to compare to.</param>
+            <returns>True if the objects are equal, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.ElementMatcherEntity.GetHashCode">
+            <summary>
+            Gets the Hash code.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity">
+            <summary>The page matcher entity.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity.Equals(Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity)">
+            <summary>
+            Compares instance of <see cref="T:Sitecore.FXM.Service.Model.PageMatcherEntity"/> to another instance.
+            </summary>
+            <param name="other">The object to compare to.</param>
+            <returns>True if the objects are equal, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.ExperienceEditorComponentEntity.GetHashCode">
+            <summary>
+            Gets the Hash code.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Model.PageMatcherEntity">
+            <summary>The page matcher entity.</summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.PageMatcherEntity.profileIds">
+            <summary>
+            The profile ids.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.PageMatcherEntity.goalIds">
+            <summary>
+            The goal ids.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.PageMatcherEntity.eventIds">
+            <summary>
+            The event ids.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.PageMatcherEntity.campaignIds">
+            <summary>
+            The campaign ids.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Model.PageMatcherEntity.outcomeIds">
+            <summary>
+            The outcome ids.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.PageMatcherEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Model.PageMatcherEntity"/> class.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.Name">
+            <summary>
+            Gets or sets the page matcher name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.IsActive">
+            <summary>
+            Gets or sets a value indicating whether or not the page matcher is active.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.ParentId">
+            <summary>
+            Gets or sets the page matchers parent Id.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.RuleFinalValue">
+            <summary>
+            Gets or sets the string value of the matching rule.  This will either be rule Xml or
+            a short hand value specified by the user.  The type is indicated in the MatchRuleType field.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.MatchRuleType">
+            <summary>Gets or sets the type of the match rule.</summary>
+            <value>The type of the match rule.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.ProfileIds">
+            <summary>Gets or sets the profile ids.</summary>
+            <value>The profile ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.GoalIds">
+            <summary>Gets or sets the goal ids.</summary>
+            <value>The goal ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.EventIds">
+            <summary>Gets or sets the event ids.</summary>
+            <value>The event ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.CampaignIds">
+            <summary>Gets or sets the campaign ids.</summary>
+            <value>The campaign ids.</value>
+        </member>
+        <member name="P:Sitecore.FXM.Service.Model.PageMatcherEntity.OutcomeIds">
+            <summary>
+            Gets or sets the outcome ids.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.PageMatcherEntity.Equals(Sitecore.FXM.Service.Model.PageMatcherEntity)">
+            <summary>
+            Compares instance of <see cref="T:Sitecore.FXM.Service.Model.PageMatcherEntity"/> to another instance.
+            </summary>
+            <param name="other">The object to compare to.</param>
+            <returns>True if the objects are equal, otherwise false.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Model.PageMatcherEntity.GetHashCode">
+            <summary>
+            Gets the Hash code.
+            </summary>
+            <returns>The hash code.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.SitecoreAuthorizeAttribute">
+            <summary>
+            Attribute to authorize Sitecore user.
+            </summary>
+        </member>
+        <member name="P:Sitecore.FXM.Service.SitecoreAuthorizeAttribute.AdminsOnly">
+            <summary>
+            Gets or sets a value indicating whether only admins are authenticated.
+            </summary>
+            <value><c>true</c> if only admins are authenticated; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Sitecore.FXM.Service.SitecoreAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Determines whether the specified action context is authorized.
+            </summary>
+            <param name="actionContext">The action context.</param>
+            <returns>
+            True if user is administrator. Otherwise we rely on logic in base attribute.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Utils.HttpExceptionHelper">
+            <summary>
+            The http exception helper.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Utils.HttpExceptionHelper.InternetServerError(System.String,System.String)">
+            <summary>
+            The internet server error.
+            </summary>
+            <param name="reason">
+            The reason.
+            </param>
+            <param name="content">
+            The content.
+            </param>
+            <returns>
+            The <see cref="T:System.Web.Http.HttpResponseException"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Utils.HttpExceptionHelper.BadRequest(System.String,System.String)">
+            <summary>
+            The bad request.
+            </summary>
+            <param name="reason">
+            The reason.
+            </param>
+            <param name="content">
+            The content.
+            </param>
+            <returns>
+            The <see cref="T:System.Web.Http.HttpResponseException"/>.
+            </returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Utils.HttpExceptionHelper.Error(System.Net.HttpStatusCode,System.String,System.String)">
+            <summary>
+            The error.
+            </summary>
+            <param name="code">
+            The code.
+            </param>
+            <param name="reason">
+            The reason.
+            </param>
+            <param name="content">
+            The content.
+            </param>
+            <returns>
+            The <see cref="T:System.Web.Http.HttpResponseException"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Utils.WebUtil">
+            <summary>
+            The web util.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Utils.WebUtil.ExtractPageEventParameters(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            The extract page event parameters.
+            </summary>
+            <param name="queryNameValuePairs">
+            The query name value pairs.
+            </param>
+            <returns>
+            The <see cref="!:Dictionary"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Extensions.ItemExtensions">
+            <summary>Sitecore Item extensions.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Extensions.ItemExtensions.ToPageMatcherEntity(Sitecore.Data.Items.Item,System.Boolean,Sitecore.FXM.Tracking.IAnalyticsDefinitionsRepository)">
+            <summary>Converts an instance of <see cref="T:Sitecore.Data.Items.Item"/> to an instance of <see cref="T:Sitecore.FXM.Service.Model.PageMatcherEntity"/></summary>
+            <param name="item">The Sitecore <see cref="T:Sitecore.Data.Items.Item"/>.</param>
+            <param name="isActive">Whether the Item is published.</param>
+            <param name="analyticsDefinitions">Analytics definition repository</param>
+            <returns>A new instance of <see cref="T:Sitecore.FXM.Service.Model.PageMatcherEntity"/>.</returns>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Extensions.ItemExtensions.ToElementMatcherEntity(Sitecore.Data.Items.Item,System.Boolean,Sitecore.FXM.Tracking.IAnalyticsDefinitionsRepository)">
+            <summary>Converts an instance of <see cref="T:Sitecore.Data.Items.Item"/> to an instance of <see cref="T:Sitecore.FXM.Service.Model.ElementMatcherEntity"/></summary>
+            <param name="item">The Sitecore <see cref="T:Sitecore.Data.Items.Item"/>.</param>
+            <param name="isActive">Whether the Item is published.</param>
+            <param name="analyticsDefinitions">Analytics definition repository</param>
+            <returns>A new instance of <see cref="T:Sitecore.FXM.Service.Model.ElementMatcherEntity"/>.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Handler.BeaconSessionControllerHandler">
+            <summary>
+            The beacon session controller handler.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Handler.BeaconSessionControllerHandler.#ctor(System.Web.Routing.RouteData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Handler.BeaconSessionControllerHandler"/> class.
+            </summary>
+            <param name="routeData">The route data.</param>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Handler.BeaconSessionRouteHandler">
+            <summary>
+            The beacon session route handler.
+            </summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Handler.BeaconSessionRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext)">
+            <summary>
+            Gets the Http Handler.
+            </summary>
+            <param name="requestContext">The request context.</param>
+            <returns>An instance of the <see cref="T:Sitecore.FXM.Service.Handler.BeaconSessionControllerHandler"/> class.</returns>
+        </member>
+        <member name="T:Sitecore.FXM.Service.Pipelines.EnableBeaconServiceSessionStateProcessor">
+            <summary>
+            Maps a specific route for the Beacon Service in Asimov to allow session state to be enabled as Andes relies upon the existence of a session.
+            </summary>
+        </member>
+        <member name="F:Sitecore.FXM.Service.Pipelines.EnableBeaconServiceSessionStateProcessor.settings">
+            <summary>The settings.</summary>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Pipelines.EnableBeaconServiceSessionStateProcessor.#ctor(Sitecore.Abstractions.BaseSettings)">
+            <summary>Initializes a new instance of the <see cref="T:Sitecore.FXM.Service.Pipelines.EnableBeaconServiceSessionStateProcessor"/> class.</summary>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="M:Sitecore.FXM.Service.Pipelines.EnableBeaconServiceSessionStateProcessor.Process(Sitecore.Pipelines.PipelineArgs)">
+            <summary>
+            Processes the pipeline.
+            </summary>
+            <param name="args">The pipeline arguments.</param>
+        </member>
+    </members>
+</doc>

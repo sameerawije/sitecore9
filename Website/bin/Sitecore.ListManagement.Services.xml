@@ -1,0 +1,1400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.ListManagement.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.ListManagement.Services.AccessDeniedExceptionFilterAttribute">
+            <summary>
+            The access denied exception filter.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.AccessDeniedExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Called when [exception].
+            </summary>
+            <param name="actionExecutedContext">The context.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ActionsController">
+            <summary>
+            The actions controller.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ActionsController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.ListManagement.Services.Model.ContactListModel},Sitecore.ListManagement.IListSubscriptionsStore{Sitecore.ListManagement.Services.Model.ContactDataModel},Sitecore.ListManagement.IListConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.ActionsController" /> class.
+            </summary>
+            <param name="contactListRepository">The contact list repository.</param>
+            <param name="listSubscriptionsStore">The subsciption repository.</param>
+            <param name="listConverter">The conversion manager.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ActionsController.ConvertList(System.String)">
+            <summary>
+            Converts the list.
+            </summary>
+            <param name="id">The list identifier.</param>
+            <returns>The string representation of the id of the created list.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ActionsController.RemoveAllContactAssociationsAndSources(System.Guid)">
+            <summary>
+            Removes all contact associations and sources.
+            </summary>
+            <param name="id">The list identifier.</param>
+            <returns>The count of contacts that were removed.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ActionsController.RemoveDuplicates(System.Guid)">
+            <summary>
+            Removes the duplicates.
+            </summary>
+            <param name="id">The list identifier.</param>
+            <returns>Removed duplicates count.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.AnalyticsDisabledFilterAttribute">
+            <summary>
+            The analytics disabled attribute.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.AnalyticsDisabledFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Called when [action executing].
+            </summary>
+            <param name="actionContext">The action context.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ContactListDefinitionMapper">
+            <summary>
+             The contact list definition mapper.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListDefinitionMapper.#ctor(Sitecore.Marketing.Segmentation.RuleXmlConverter.IRuleXmlConverter)">
+            <summary>
+            Instntiates new instance of <see cref="T:Sitecore.ListManagement.Services.ContactListDefinitionMapper"/>
+            </summary>
+            <param name="ruleXmlConverter">
+            Converter from XML-rule-reprsentation to <see cref="T:Sitecore.Marketing.Rules.Rule"/>rule.
+            </param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListDefinitionMapper.GetContactList(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Gets the contact list definition.
+            </summary>
+            <param name="contactListModel">The contact list model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListDefinitionMapper.UpdateExistingContactListDefinition(Sitecore.ListManagement.ContactList,Sitecore.ListManagement.ContactList,System.Boolean)">
+            <summary>
+            Updates the existing contact list definition.
+            </summary>
+            <param name="existingContactList">The existing contact list.</param>
+            <param name="newContactList">The new contact list.</param>
+            <param name="keepSources">If <value>false</value> override properties related to source</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListDefinitionMapper.GetViewModel(Sitecore.ListManagement.ContactList)">
+            <summary>
+            Gets the view model.
+            </summary>
+            <param name="contactList">The contact list.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ContactsStream">
+            <summary>
+            The contacts stream.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ContactsStream.contactRowsEnumerator">
+            <summary>
+            The contact rows enumerator.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ContactsStream.encoding">
+            <summary>
+            Gets or sets the encoding.
+            </summary>
+            <value>
+            The encoding.
+            </value>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ContactsStream.firstRead">
+            <summary>
+            The first read.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ContactsStream.hasNext">
+            <summary>
+            The has next.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ContactsStream.temporaryBuffer">
+            <summary>
+            The temporary buffer.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.ContactsStream" /> class.
+            </summary>
+            <param name="contactRows">The contact rows.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.ContactsStream.CanRead">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports reading.
+            </summary>
+            <returns>true if the stream supports reading; otherwise, false.</returns>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.ContactsStream.CanSeek">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports seeking.
+            </summary>
+            <returns>true if the stream supports seeking; otherwise, false.</returns>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.ContactsStream.CanWrite">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports writing.
+            </summary>
+            <returns>true if the stream supports writing; otherwise, false.</returns>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.ContactsStream.Length">
+            <summary>
+            When overridden in a derived class, gets the length in bytes of the stream.
+            </summary>
+            <returns>A long value representing the length of the stream in bytes.</returns>
+            <exception cref="T:System.NotSupportedException">The operation is not supported.</exception>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.ContactsStream.Position">
+            <summary>
+            When overridden in a derived class, gets or sets the position within the current stream.
+            </summary>
+            <returns>The current position within the stream.</returns>
+            <exception cref="T:System.NotSupportedException">The operation is not supported.</exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            When overridden in a derived class, writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
+            </summary>
+            <param name="buffer">An array of bytes. This method copies <paramref name="count" /> bytes from <paramref name="buffer" /> to the current stream.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="buffer" /> at which to begin copying bytes to the current stream.</param>
+            <param name="count">The number of bytes to be written to the current stream.</param>
+            <exception cref="T:System.NotSupportedException">The operation is not supported.</exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.SetLength(System.Int64)">
+            <summary>
+            When overridden in a derived class, sets the length of the current stream.
+            </summary>
+            <param name="value">The desired length of the current stream in bytes.</param>
+            <exception cref="T:System.NotSupportedException">The operation is not supported.</exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
+            </summary>
+            <param name="buffer">An array of bytes. When this method returns, the buffer contains the specified byte array with the values between <paramref name="offset" /> and (<paramref name="offset" /> + <paramref name="count" /> - 1) replaced by the bytes read from the current source.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="buffer" /> at which to begin storing the data read from the current stream.</param>
+            <param name="count">The maximum number of bytes to be read from the current stream.</param>
+            <returns>
+            The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.Flush">
+            <summary>
+            When overridden in a derived class, clears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            </summary>
+            <exception cref="T:System.NotSupportedException">The operation is not supported.</exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            When overridden in a derived class, sets the position within the current stream.
+            </summary>
+            <param name="offset">A byte offset relative to the <paramref name="origin" /> parameter.</param>
+            <param name="origin">A value of type <see cref="T:System.IO.SeekOrigin" /> indicating the reference point used to obtain the new position.</param>
+            <returns>
+            The new position within the current stream.
+            </returns>
+            <exception cref="T:System.NotSupportedException">The operation is not supported.</exception>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.MoveEntireBuffer(System.Byte[],System.Byte[],System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Moves the entire buffer.
+            </summary>
+            <param name="srcBuffer">The source buffer.</param>
+            <param name="dstBuffer">The DST buffer.</param>
+            <param name="pointer">The pointer.</param>
+            <param name="bytesLeft">The bytes left.</param>
+            <param name="bytesRead">The bytes read.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactsStream.MovePartFromBuffer(System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Moves the part from buffer.
+            </summary>
+            <param name="sourceBuffer">The source buffer.</param>
+            <param name="destinationBuffer">The destination buffer.</param>
+            <param name="amountToCopy">The amount to copy.</param>
+            <param name="pointer">The pointer.</param>
+            <param name="bytesLeft">The bytes left.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Controllers.ContactsController">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ContactsController.#ctor(Sitecore.ListManagement.IListSubscriptionsStore{Sitecore.ListManagement.Services.Model.ContactDataModel},Sitecore.Abstractions.BaseLog)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ContactsController.GetEntities(System.Guid,System.String,System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ContactsController.CreateEntity(System.Guid,Sitecore.ListManagement.Services.Model.ContactDataModel)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ContactsController.Subscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ContactsController.Unsubscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Controllers.ExportController">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ExportController.#ctor(Sitecore.ListManagement.Services.Repositories.IExportRepository)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ExportController.ExportContacts(System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Controllers.ListCombinerController">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.#ctor(Sitecore.ListManagement.IListCombiner{Sitecore.XConnect.Contact})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.Controllers.ListCombinerController"/> class.
+            </summary>
+            <param name="listCombiner">The list manager.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.Union(System.Collections.Generic.IEnumerable{System.Guid},System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.Except(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.Intersect(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Int32,System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.UnionCount(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.ExceptCount(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Controllers.ListCombinerController.IntersectCount(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Converters.ListConverter">
+            <summary>
+            Performs different types of list conversions,
+            e.g. creating new lists on the basis of information
+            from the source list.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Converters.ListConverter.#ctor(Sitecore.ListManagement.IContactListProvider)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Converters.ListConverter.Convert(System.Guid,System.Guid)">
+            <summary>
+            Creates target list on the basis of information from
+            source list.
+            Source one must be segmented list.
+            Target one will be created as contact list.
+            Subscribes all contacts of source list to target list.
+            </summary>
+            <param name="sourceSegmentedListId">Identifier of source list.</param>
+            <param name="targetContactListId">Identifier of target list.</param>
+            Throws <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException" /> is source list doesn't exist.
+            Throws <exception cref="T:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException" /> if source list is not segmented one.
+            <returns>Created contact list.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException">
+            <summary>
+            Exception that is thrown when some fields of the entity
+            are not valid due to business limitations and such
+            one could not be processed.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException.#ctor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException.#ctor(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException.#ctor(System.String,System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Extensions.ServiceCollectionExtensions">
+            <summary>
+                Configures custom services requred for List Manager WebAPI controllers.
+                Mainly that will be Sitecore Services Client (SSC) repositories
+                inherited from <see cref="T:Sitecore.Services.Core.IRepository`1" /> or
+                <seealso cref="T:Sitecore.Services.Core.Data.IReadOnlyEntityRepository`1" />.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetMediaStream">
+            <summary>
+            The get media stream.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetMediaStream.Database">
+            <summary>
+            Gets or sets the database.
+            </summary>
+            <value>
+            The database.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetMediaStream.Process(Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs)">
+            <summary>
+            The process.
+            </summary>
+            <param name="args">The contact association args.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetContactsFromStream">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetContactsFromStream.#ctor(Sitecore.ListManagement.Import.StreamContactImporter,Sitecore.ListManagement.Configuration.ListManagementSettings)">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetContactsFromStream.FacetsToMap">
+            <summary>
+            Gets the list of facets retrieved from XConnect for further mapping.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetContactsFromStream.RequiredFields">
+            <summary>
+            Gets the list of data field names that must not be empty in order to
+            map a contact. If at least one of the fields is empty, the entire CSV
+            like mapping is skipped.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.GetContactsFromStream.Process(Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.RemoveMediaItem">
+            <summary>
+            The remove media item.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.RemoveMediaItem.#ctor(Sitecore.ListManagement.Configuration.ListManagementSettings)">
+            <summary>
+            Processor to remove media item by passed <see cref="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ImportBatchId"/>
+            </summary>
+            <param name="settings">List manager settings</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.RemoveMediaItem.Database">
+            <summary>
+            Gets or sets the database.
+            </summary>
+            <value>
+            The database.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.RemoveMediaItem.Process(Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs)">
+            <summary>
+            The process.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs">
+            <summary>
+            The import media contacts args.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.#ctor(System.String,System.Collections.Generic.IDictionary{System.String,System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs"/> class.
+            </summary>
+            <param name="importFileId">
+            The import file id.
+            </param>
+            <param name="fieldMappings">
+            The field mappings.
+            </param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs"/> class.
+            </summary>
+            <param name="info">The serialized data.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ImportFileId">
+            <summary>
+            Gets the import file identifier.
+            </summary>
+            <value>
+            The import file identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.MediaFileStream">
+            <summary>
+            Gets or sets the media file stream.
+            </summary>
+            <value>
+            The media file stream.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.FieldMappings">
+            <summary>
+            Gets the field mappings.
+            </summary>
+            <value>
+            The field mappings.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ImportBatchId">
+            <summary>
+            Gets or sets the import batch identifier.
+            </summary>
+            <value>
+            The import batch identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ListId">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.BulkOperationsId">
+            <summary>
+            Gets or sets the bulk operations identifier.
+            </summary>
+            <value>
+            The bulk operations identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ExpectedContactsCount">
+            <summary>
+            Gets or sets the imported contacts count.
+            </summary>
+            <value>
+            The imported contacts count.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ExistingContactsCount">
+            <summary>
+            Gets or sets the existing contacts count.
+            </summary>
+            <value>The existing contacts count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ContactsWithoutEmailCount">
+            <summary>
+            Gets or sets the contacts without email count.
+            </summary>
+            <value>The contacts without email count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ContactsWithoutRequiredFieldsCount">
+            <summary>
+            Gets or sets the contacts without required fields count.
+            </summary>
+            <value>The contacts without required fields count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ContactsWithAlreadyDefinedIdentifierCount">
+            <summary>
+            Gets or sets the contacts with already defined identifier.
+            </summary>
+            <value>
+            The contacts with already defined identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.ContactsLockedOrUnavailableInDatabaseCount">
+            <summary>
+            Gets or sets the contacts locked or currently active.
+            </summary>
+            <value>
+            The contacts locked or currently active.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.UnidentifiedContactsCount">
+            <summary>
+            Gets or sets the unidentified contacts count.
+            </summary>
+            <value>
+            The unidentified contacts count.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.ImportMediaContacts.ImportMediaContactsEventArgs.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a 
+            <see cref="T:System.Runtime.Serialization.SerializationInfo"></see> with the data needed to serialize the target object.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"></see> to populate with data.</param>
+            <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext"></see>) for this serialization.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Pipelines.Initialize.HttpConfigurationProcessor">
+            <summary>
+            The http configuration processor.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.Initialize.HttpConfigurationProcessor.Process(Sitecore.Pipelines.PipelineArgs)">
+            <summary>
+            The process.
+            </summary>
+            <param name="args">
+            The args.
+            </param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.Initialize.HttpConfigurationProcessor.Configure(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Configures the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Pipelines.Initialize.RegisterHttpRoutes">
+            <summary>
+            The register routes.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Pipelines.Initialize.RegisterHttpRoutes.Configure(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Configures the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Repositories.ContactExportRepository">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ContactExportRepository.#ctor(Sitecore.ListManagement.IContactListProvider,Sitecore.ListManagement.XConnect.Export.IContactDataReaderFactory,Sitecore.ListManagement.XConnect.IContactProvider,Sitecore.ListManagement.Configuration.ListManagementSettings)">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Repositories.ContactExportRepository.Delimiter">
+            <summary>
+            Gets or sets the delimiter.
+            </summary>
+            <value>
+            The delimiter.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ContactExportRepository.Export(System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ContactExportRepository.ConvertContacts(System.Collections.Generic.IEnumerable{Sitecore.XConnect.Contact})">
+            <summary>
+            Gets the row.
+            </summary>
+            <param name="contacts">The contacts.</param>
+            <returns>Contact rows</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Repositories.IExportRepository">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.IExportRepository.Export(System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Repositories.ListSubscriptionsStore">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ListSubscriptionsStore.#ctor(Sitecore.ListManagement.IContactListProvider,Sitecore.ListManagement.XConnect.ISubscriptionService,Sitecore.ListManagement.XConnect.IContactProvider,Sitecore.ListManagement.Operations.IListOperationRepository,Sitecore.ListManagement.Configuration.ListManagementSettings)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ListSubscriptionsStore.RemoveDuplicates(System.Guid)">
+            <summary>
+            Search for duplicated contacts by preferred email and unsubscribe duplicates from the list.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException">The list with <paramref name="listId"/> identifier cannot be found</exception>
+            <exception cref="T:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException">The list with <paramref name="listId"/> identifier has wrong type. Only type ContactList is supported.</exception>
+            <returns>Duplicated contacts count</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ListSubscriptionsStore.RemoveAllSubscriptions(System.Guid)">
+            <summary>
+            Removes all sources and unsubscribe all contacts from the list.
+            </summary>
+            <param name="listId">The list identifier.</param>
+            <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException">The list with <paramref name="listId"/> identifier cannot be found</exception>
+            <exception cref="T:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException">The list with <paramref name="listId"/> identifier has wrong type. Only type ContactList is supported.</exception>
+            <returns>Duplicated contacts count</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Repositories.ListSubscriptionsStore.CopySubscriptions(System.Guid,System.Guid)">
+            <summary>
+            Subscribes all contacts of source list to target list.
+            Both lists should exist.
+            Target one should be contact list.
+            </summary>
+            <param name="sourceListId">Identifier of source list.</param>
+            <param name="targetContactListId">Identifier of target list.</param>
+            Throws <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException" /> if source list doesn't exist.
+            Throws <exception cref="T:Sitecore.ListManagement.Exceptions.ContactListNotFoundException" /> if target list doesn't exist.
+            Throws <exception cref="T:Sitecore.ListManagement.Services.Exceptions.UnprocessableEntityException" /> if target list is not contact one.
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ValidateModelAttribute">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ValidateModelAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.DependencyInjection.CustomServiceConfigurator">
+            <summary>
+            Configures List Manager WebAPI controllers and all their dependencies.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.TypeExceptionFilterAttribute">
+            <summary>
+            The type exception filter.
+            </summary>
+            <seealso cref="T:System.Web.Http.Filters.ExceptionFilterAttribute" />
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.TypeExceptionFilterAttribute.#ctor(System.Type,System.Net.HttpStatusCode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.TypeExceptionFilterAttribute"/> class.
+            </summary>
+            <param name="exceptionType">Type of the exception.</param>
+            <param name="statusCode">The status code.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.TypeExceptionFilterAttribute.ExceptionType">
+            <summary>
+            Gets the type of the exception
+            that exception filter catches, handles
+            and returns proper response.
+            </summary>
+            <value>
+            The type of the exception.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.TypeExceptionFilterAttribute.StatusCode">
+            <summary>
+            Gets the HTTP status code that filter returns
+            for catched and handled exception.
+            </summary>
+            <value>
+            The HTTP status code.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.TypeExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Called when [exception].
+            </summary>
+            <param name="actionExecutedContext">The context.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.SitecoreAuthorizeAttribute">
+            <summary>
+            Attribute to authorize Sitecore user.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.SitecoreAuthorizeAttribute.AdminsOnly">
+            <summary>
+            Gets or sets a value indicating whether only admins are authenticated.
+            </summary>
+            <value><c>true</c> if only admins are authenticated; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.SitecoreAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Determines whether the specified action context is authorized.
+            </summary>
+            <param name="actionContext">The action context.</param>
+            <returns>
+            True if user is administrator. Otherwise we rely on logic in base attribute.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ContactListController">
+            <summary>
+            The contact list controller.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ContactListController._repository">
+            <summary>
+            The local repository copy.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListController.#ctor(Sitecore.ListManagement.Services.ContactListRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.ContactListController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListController.#ctor(Sitecore.Services.Infrastructure.Services.IMetaDataBuilder,Sitecore.Services.Core.ComponentModel.DataAnnotations.IEntityValidator,Sitecore.ListManagement.Services.ContactListRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.ContactListController"/> class.
+            </summary>
+            <param name="metaDataBuilder">The metadata builder.</param>
+            <param name="entityValidator">The entity validator.</param>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.ContactListController.Repository">
+            <summary>
+            Gets the repository used for CRUD operations.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListController.FetchEntities(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Fetches the entities.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="searchExpression">The search expression.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <returns>
+            The collection of the contact lists.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListController.CreateEntity(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Creates a new entity.
+            </summary>
+            <param name="entity">The entity to create.</param>
+            <returns>The response.</returns>
+            <remarks>
+            <para>The request should contain a CSRF token.</para>
+            </remarks>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListController.UpdateEntity(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            updates the existing entity.
+            </summary>
+            <param name="entity">The entity to update.</param>
+            <returns>The response.</returns>
+            <remarks>
+            <para>The request should contain a CSRF token.</para>
+            </remarks>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListController.Delete(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Deletes an existing entity.
+            </summary>
+            <param name="entity">The entity to delete.</param>
+            <returns>The response.</returns>
+            <remarks>
+            <para>The request should contain a CSRF token.</para>
+            </remarks>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ContactListRepository">
+            <summary>
+            The contact list repository.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.#ctor(Sitecore.ListManagement.IContactListProvider,Sitecore.ListManagement.Services.ContactListDefinitionMapper,Sitecore.ListManagement.XConnect.IContactProvider,Sitecore.Abstractions.BaseRolesInRolesManager,Sitecore.ListManagement.Operations.IListOperationRepository,Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.ContactListRepository"/> class.
+            </summary>
+            <param name="contactListProvider">The contact list provider.</param>
+            <param name="contactListDefinitionMapper">The contact list definition mapper.</param>
+            <param name="contactProvider">The contact provider.</param>
+            <param name="rolesInRolesManager">The roles in roles manager.</param>
+            <param name="listOperationRepository">The list operation repository.</param>
+            <param name="log">The log.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.GetAll">
+            <summary>
+            Gets all.
+            </summary>
+            <returns>The collection of contact lists.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.FindById(System.String)">
+            <summary>
+            Finds the by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>The contact list.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.Add(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Adds the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.Exists(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Checks the specified entity exists.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>
+            True if contact list exists. Otherwise false.
+            </returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.Update(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Updates the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.Delete(Sitecore.ListManagement.Services.Model.ContactListModel)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ContactListRepository.Search(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Gets filtered contact lists from path with count.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="searchExpression">The search expression.</param>
+            <param name="userName">Name of the user.</param>
+            <param name="pageIndex">The page index.</param>
+            <param name="pageSize">The page size.</param>
+            <returns>
+            The collection of contact lists and count.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ImportController">
+            <summary>
+              The import controller.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ImportController._contactListRepository">
+            <summary>
+              The list manager.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ImportController.#ctor(Sitecore.Services.Core.IRepository{Sitecore.ListManagement.Services.Model.ContactListModel},Sitecore.Abstractions.BaseMediaManager,Sitecore.ListManagement.Configuration.ListManagementSettings,Sitecore.ListManagement.Import.CsvReader)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.ImportController" /> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ImportController.ImportContactsFromMediaLibraryAndCreateList(System.Collections.Generic.Dictionary{System.String,System.Int32},System.String)">
+            <summary>
+              The import contacts from media library.
+            </summary>
+            <param name="mapping">The mapping.</param>
+            <param name="id">The media item id.</param>
+            <returns>The import result model.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ImportController.ImportContactsFromMediaLibrary(System.Collections.Generic.Dictionary{System.String,System.Int32},System.String)">
+            <summary>
+              Imports the contacts from media library.
+            </summary>
+            <param name="mapping">The mapping.</param>
+            <param name="id">The media item identifier.</param>
+            <returns>The import result model.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ImportController.GetContactFileHeaders(System.String)">
+            <summary>
+              Gets the contact file headers.
+            </summary>
+            <param name="id">The media item identifier.</param>
+            <returns>Collection of header titles.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.ImportController.RemoveMedia(System.String)">
+            <summary>
+              Removes the media.
+            </summary>
+            <param name="id">The media item identifier.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ListRowType">
+            <summary>
+            Defines the ListRowType type.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ListRowType.ContactList">
+            <summary>
+            The contact list.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ListRowType.SegmentedList">
+            <summary>
+            The segmented list.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.ListsFilters">
+            <summary>
+              The lists filters.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ListsFilters.GetContactLists">
+            <summary>
+            The get contact lists.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ListsFilters.GetSegmentedLists">
+            <summary>
+            The get segmented lists.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ListsFilters.GetMyLists">
+            <summary>
+            The get my lists.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.ListsFilters.GetRecentlyCreatedLists">
+            <summary>
+            The get recently created lists.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Model.ContactDataModel">
+            <summary>
+            Defines the model being used to get contacts related to the contact list.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.itemId">
+            <summary>
+            Gets the item identifier.
+            </summary>
+            <value>
+            The item identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.Identifier">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.IdentifierSource">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+            
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactDataModel.Count">
+            <summary>
+            Gets or sets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Model.ImportResultModel">
+            <summary>
+            Defines the model used for representing results of contact import process.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ImportResultModel.ImportBatchId">
+            <summary>
+            Gets or sets the import batch identifier.
+            </summary>
+            <value>The import batch identifier.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ImportResultModel.ImportedContactsCount">
+            <summary>
+            Gets or sets the imported contacts count.
+            </summary>
+            <value>The imported contacts count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ImportResultModel.ExpectedExistingContactsCount">
+            <summary>
+            Gets or sets the expected existing contacts count.
+            </summary>
+            <value>The expected existing contacts count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ImportResultModel.ContactsWithoutEmailCount">
+            <summary>
+            Gets or sets the contacts without email count.
+            </summary>
+            <value>The contacts without email count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ImportResultModel.ContactsWithoutRequiredFieldsCount">
+            <summary>
+            Gets or sets the contacts without required fields count.
+            </summary>
+            <value>The contacts without required fields count.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ImportResultModel.ContactsLockedOrUnavailableInDatabaseCount">
+            <summary>
+            Gets or sets the contacts locked or unavailable in database.
+            </summary>
+            <value>
+            The contacts locked or unavailable in database.
+            </value>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Model.ListSourceModel">
+            <summary>
+            The list source model.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Model.ListSourceModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.Model.ListSourceModel"/> class. 
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ListSourceModel.itemId">
+            <summary>
+            Gets the item identifier.
+            </summary>
+            <value>
+            The item identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ListSourceModel.ExcludedLists">
+            <summary>
+              Gets or sets the excluded lists.
+            </summary>
+            <value>The excluded lists.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ListSourceModel.IncludedLists">
+            <summary>
+              Gets or sets the included lists.
+            </summary>
+            <value>
+              The included lists.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ListSourceModel.PredefinedText">
+            <summary>
+            Gets or sets the predefined text.
+            </summary>
+            <value>The predefined text.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ListSourceModel.PredefinedSourceType">
+            <summary>
+            Gets or sets the predefined source type.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ListSourceModel.PredefinedParameters">
+            <summary>
+            Gets or sets the predefined source parameters.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Model.ContactListModel">
+            <summary>
+            The contact list.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Model.ContactListModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.Model.ContactListModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.Model.ContactListModel.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.Services.Model.ContactListModel"/> class.
+            </summary>
+            <param name="listName">Name of the list.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.DescriptionMaxLengthError">
+            <summary>
+            Max length error for <see cref="P:Sitecore.ListManagement.Services.Model.ContactListModel.Description"/>.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.itemId">
+            <summary>
+            Gets the item identifier.
+            </summary>
+            <value>
+            The item identifier.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Created">
+            <summary>
+            Gets or sets the created date/time.
+            </summary>
+            <value>The created.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Updated">
+            <summary>
+            Gets or sets the updated date/time.
+            </summary>
+            <value>The updated.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.CreatedBy">
+            <summary>
+            Gets or sets the created by.
+            </summary>
+            <value>
+            The created by.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.TypeName">
+            <summary>
+            Gets or sets the localized name of the type.
+            </summary>
+            <value>
+            The name of the localized type.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Source">
+            <summary>
+            Gets or sets the list source.
+            </summary>
+            <value>The list source.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Owner">
+            <summary>
+            Gets or sets the owner.
+            </summary>
+            <value>The owner.</value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Recipients">
+            <summary>
+            Gets or sets the recipients.
+            </summary>
+            <value>
+            The recipients.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Notification">
+            <summary>
+            Gets or sets the notification.
+            </summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Count">
+            <summary>
+            Gets or sets all lists count.
+            </summary>
+            <value>
+            All lists count.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.Services.Model.ContactListModel.Query">
+            <summary>
+            Gets or sets the query.
+            </summary>
+            <value>
+            The query.
+            </value>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.SecurityController">
+            <summary>
+            Sitecore's security controller
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.SecurityController.#ctor(Sitecore.Abstractions.BaseRolesInRolesManager)">
+            <summary>
+            Ctor for the security controller
+            </summary>
+            <param name="rolesInRolesManager"></param>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.SecurityController.GetUsersInListManagementRole">
+            <summary>
+            Gets the users in list manager role.
+            </summary>
+            <returns>The collection of user names.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.Texts">
+            <summary>
+            The texts.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.InvalidFolderNamePleaseUsePermittedCharacters">
+            <summary>
+            The invalid folder name.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.NameValueIsRequired">
+            <summary>
+            The name value is required.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ActionsControllerException">
+            <summary>
+            The actions controller exception.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.YouDoNotHaveTheSufficientAccessRights">
+            <summary>
+            You do not have the sufficient access rights to create or edit lists and folders please contact your administrator
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.AtTheMomentYouCannotUseOrEditTheListAnotherUserIsUsingTheListOrItsSourcePleaseTryAgainLater">
+            <summary>
+            The 'At the moment you cannot use or edit the list another user is using the list or its source please try again later.' error message
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ContactList">
+            <summary>
+            The contact list.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.SegmentedList">
+            <summary>
+            The segmented list.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.PleaseNote0OutOf1ContactsAreCurrentlyIndexed">
+            <summary>
+            The Please note that contacts in the list are currently being indexed, so not all contacts are available to view at this time. {0} out of {1} contacts are currently indexed.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.UnableToRemoveContact0FromList1TheListIsNotFound">
+            <summary>
+            The unable to remove contact0 from list1 the list is not found.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.UnableToAddContact0ToList1TheListIsNotFound">
+            <summary>
+            The unable to add contact0 to list1 the list is not found.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.TheContactCannotBeAddedDueToInvalidIdentifierSource">
+            <summary>
+            The contact cannot be added due to invalid identifier source.Use valid characters to set identifier source or use default ListManager source.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.TheContactHasBeenAddedToTheListAndWillBeAvailableAfterIndexing">
+            <summary>
+            The contact has been added to the list and will be available after indexing.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ContactAlreadyExistsAndIsCurrentlyActiveAndLockedPleaseTryAgainLater">
+            <summary>
+            The contact already exists and is currently active and locked please try again later.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.DescriptionLengthShouldBeNoLongerThan">
+            <summary>
+            The list description has exceeded maximum length
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.PageSizeShouldBeGreaterThanOrEqualTo1">
+            <summary>
+            The page size should be greater than or equal to1
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.PageIndexShouldBeGreaterThanOrEqualTo1">
+            <summary>
+            The page index should be greater than or equal to1
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ConvertedFromSegmentedList">
+            <summary>
+            The converted from segmented list.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.CreatedFromCsv">
+            <summary>
+            The created from csv.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.SegmentedListCannotBeAddedAsSource">
+            <summary>
+            The 'Segmented list cannot be added as source' phrase key.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.NoSource">
+            <summary>
+            The no source.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ContactAssociationRepositoryRootCannotBeFound">
+            <summary>
+            The contact association repository cannot be found
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.RootItemIsNotFound">
+            <summary>
+            The root item is not found.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.DestinationItemIsNotFound">
+            <summary>
+            The destination item is not found
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.EntityThatIsNotSegmentedListCouldNotBeConverted">
+            <summary>
+            The entity that is not segmented list could not be converted
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.DuplicateIdsAreNotAllowed">
+            <summary>
+            The duplicate ids are not allowed.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.CannotConvertObjectOfType0ToType1">
+            <summary>
+            The cannot convert object of type0 to type1.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.FolderIdIsNotCorrectItemId">
+            <summary>
+            The folder identifier is not correct item identifier.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ContactListIsRequiredToDetectChangesInSources">
+            <summary>
+            The contact list is required to detect changes in sources.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.CannotSetEntireDatabaseSourceForContactList">
+            <summary>
+            The cannot set entire database source for contact list.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.CannotChangeAllDatabaseAndOtherSourcesSimultaneously">
+            <summary>
+            The cannot change all database and other sources simultaneously.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.GoalIdValueIsNotDefined">
+            <summary>
+            The goal identifier value is not defined.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.CannotConvertValueToGuid">
+            <summary>
+            Could not convert value to unique identifier.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.OwnerIsNotInListManagerEditorsRole">
+            <summary>
+            The owner {0} does not have the necessary access rights. Select a user with the List manager editor role and try again.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.OwnerDoesNotExist">
+            <summary>
+            The owner {0} does not exist.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ValidTypeMustBeProvidedAllowedTypesAreContactListSegmentedList">
+            <summary>
+             Valid type must be provided. Allowed types are: ContactList, SegmentedList.
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.ContactsInListAreCurrentlyBeingIndexed">
+            <summary>
+            Contacts in the list are currently being indexed
+            </summary>
+        </member>
+        <member name="F:Sitecore.ListManagement.Services.Texts.Pending">
+            <summary>
+            Operation is pending.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.Services.UnauthorizedAccessExceptionFilterAttribute">
+            <summary>
+            The access denied exception filter.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.Services.UnauthorizedAccessExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Called when [exception].
+            </summary>
+            <param name="actionExecutedContext">The context.</param>
+        </member>
+    </members>
+</doc>

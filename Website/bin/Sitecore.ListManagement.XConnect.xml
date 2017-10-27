@@ -1,0 +1,1312 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sitecore.ListManagement.XConnect</name>
+    </assembly>
+    <members>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactExtensions">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactExtensions.SetListSubscriptionsFacet(Sitecore.XConnect.Contact,Sitecore.XConnect.IXdbContext,System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactExtensions.RemoveListSubscriptions(Sitecore.XConnect.Contact,Sitecore.XConnect.IXdbContext,System.Boolean,System.Guid[])">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactListDefinitionSourcesComparer">
+            <summary>
+            Set of extension to work with <see cref="T:Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactListDefinitionSourcesComparer.Equals(Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition,Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition)">
+            <summary>
+             Determines whether the Included Lists and Excluded lists of contact list definition are equal.</summary>
+            <param name="x">The first contact list definition.</param>
+            <param name="y">The second contact list definition.</param>
+            <returns>
+            <value>true</value> if contact list definition sources are equal, 
+            otherwise <value>false</value>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactSearchResult">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactSearchResult.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactSearchResult.#ctor(System.Collections.Generic.IEnumerable{Sitecore.XConnect.Contact},System.Int32)">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.ContactSearchResult.Contacts">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.ContactSearchResult.Count">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.SourceContactDataReader">
+            <summary>
+            Contact data reader that is used to read identifier source data.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.SourceContactDataReader.Map(Sitecore.XConnect.Contact)">
+            <summary>
+            Maps contact identifier source information into string output.
+            </summary>
+            <param name="contact">Inspected contact.</param>
+            <returns>
+            ListManager identifier source if such identifier is presented or first
+            available identifier source otherwise.
+            It no identifiers exists empty string is returned.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.ConfigurationContactDataReaderFactory">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.ConfigurationContactDataReaderFactory.#ctor(Sitecore.Abstractions.BaseFactory,Sitecore.Abstractions.BaseLog)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.ConfigurationContactDataReaderFactory.GetReaders">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.EmailContactDataReader">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Export.EmailContactDataReader.FacetName">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.EmailContactDataReader.Map(Sitecore.XConnect.Contact)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.FirstNameContactDataReader">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Export.FirstNameContactDataReader.FacetName">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.FirstNameContactDataReader.Map(Sitecore.XConnect.Contact)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.IContactDataReader">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Export.IContactDataReader.FacetName">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.IContactDataReader.Map(Sitecore.XConnect.Contact)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.IContactDataReaderFactory">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.IContactDataReaderFactory.GetReaders">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.IdentifierContactDataReader">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Export.IdentifierContactDataReader.FacetName">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.IdentifierContactDataReader.Map(Sitecore.XConnect.Contact)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Export.LastNameContactDataReader">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Export.LastNameContactDataReader.FacetName">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Export.LastNameContactDataReader.Map(Sitecore.XConnect.Contact)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactListDefinitionManager">
+            <summary>
+            TODO: Remove this class as soon as it's delivered to Marketing Foundation (MF PBI #152971 is completed)
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactListDefinitionManager.#ctor(Sitecore.Marketing.Definitions.IDefinitionManager{Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition},Sitecore.ListManagement.XConnect.ContactSubscriptionChangeHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.ContactListDefinitionManager"/> class.
+            </summary>
+            <param name="definitionManager"></param>
+            <param name="contactSubscriptionChangeHandler"></param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactListDefinitionManager.SaveAsync(Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition,System.Boolean)">
+            <summary>
+            Saves the <see cref="T:Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition"/>.
+            </summary>
+            <param name="definition">The definition to save.</param>
+            <param name="activate"><c>true</c> to activate the definition after saving the changes.</param>
+            <exception cref="T:System.ArgumentNullException">Exception is thrown if alias is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Exception is thrown if alias is not valid.</exception>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.IBatchedListCombiner">
+            <summary>
+            Works with collections of identifiers of contact lists
+            and returns resulting collections of contacts or batched enumerators.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IBatchedListCombiner.Union(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to union of lists.
+            </summary>
+            <param name="listIds">Ids of contact lists that need to be united.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get united contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IBatchedListCombiner.Except(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            excepted contacts from one set of contact lists from base collection of contacts.
+            </summary>
+            <param name="leftListIds">
+            Identifiers of contact lists that act like basis for set of contacts.
+            </param>
+            <param name="rightListIds">
+            Identifiers of contact lists that are needed to be excepted from basis.
+            </param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get excepted contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IBatchedListCombiner.Intersect(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            intersection of two collections of contacts from different contact lists.
+            </summary>
+            <param name="leftListIds">Left collection of identifiers of lists.</param>
+            <param name="rightListIds">Right collection of identifiers of lists.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get intersected contacts.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner">
+            <summary>
+            Works with collections of contact sources
+            and returns batched enumerators.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.Union(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.Int32,System.String[])">
+            <summary>
+            Unions contacts from different contact sources.
+            </summary>
+            <param name="contactSources">Contact sources that need to be united.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.Except(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.Int32,System.String[])">
+            <summary>
+            Excepts contacts from one set of contact sources from base collection of contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.Intersect(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.Int32,System.String[])">
+            <summary>
+            Gets and intersects two collections of contacts from different contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.Union(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to union of contact sources.
+            </summary>
+            <param name="contactSources">Contact sources that need to be united.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get united contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.Except(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            excepted contacts from one set of contact sources from base collection of contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get excepted contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.Intersect(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            intersection of two collections of contacts from different contact list sources.
+            </summary>
+            <param name="leftContactSources">Left collection of contact sources.</param>
+            <param name="rightContactSources">Right collection of contact sources.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get intersected contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.UnionCount(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Gets count of united contacts from different contact sources.
+            </summary>
+            <param name="contactSources">Contact sources that need to be united.</param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.ExceptCount(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Gets count of excepted contacts from one set of contact sources 
+            from base collection of contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactSourceBasedListCombiner.IntersectCount(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Gets count of intersection of two collections of contacts from different contact sources.
+            </summary>
+            <param name="leftContactSources">Left collection of contact sources.</param>
+            <param name="rightContactSources">Right collection of contact sources.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.CompositeMappingResult">
+            <summary>
+            Compose all results that are returned by different instances of <see cref="T:Sitecore.ListManagement.XConnect.Import.IFacetMapper"/>.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeMappingResult.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.CompositeMappingResult"/> class.
+            </summary>
+            <param name="isExistingContact">if set to <c>true</c> [is existing contact].</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeMappingResult.Accept(Sitecore.XConnect.IXdbContext,Sitecore.XConnect.Contact,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeMappingResult.Add(Sitecore.ListManagement.XConnect.Import.MappingResult)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.ErrorResistantFacetMapper">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.ErrorResistantFacetMapper.#ctor(Sitecore.ListManagement.XConnect.Import.IFacetMapper,Sitecore.Abstractions.BaseLog)">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.ErrorResistantFacetMapper.FacetMapper">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.ErrorResistantFacetMapper.Map(System.String,Sitecore.XConnect.Facet,Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Maps raw data from a CSV file into contact facets.
+            </summary>
+            <param name="facetKey">The well-known facet key to set the data to.</param>
+            <param name="facet">
+            The facet to map the CSV data to. If not specified, the mapper should 
+            create new facet instance.
+            </param>
+            <param name="mappings">The mappings.</param>
+            <param name="data">Row from a CSV file representing contact info to import.</param>
+            <returns>
+            The facet mapping result. Typically it should be <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> 
+            if the <paramref name="facetKey"/> does not match the expected facet 
+            name; otherwise, <see cref="T:Sitecore.ListManagement.XConnect.Import.FacetMapped"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.MappingFailed">
+            <summary>
+            Returned by a <see cref="T:Sitecore.ListManagement.XConnect.Import.IFacetMapper"/> when exception 
+            occurs during mapping.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.MappingFailed.#ctor(Sitecore.Abstractions.BaseLog,System.Exception)">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.MappingFailed.Exception">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.MappingFailed.Accept(Sitecore.XConnect.IXdbContext,Sitecore.XConnect.Contact,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Logs exception.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="contact">The contact.</param>
+            <param name="summary">The import summary.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper">
+            <summary>
+            Reads contact address data from a array of string (from a CSV file)
+            and sets it into the <see cref="T:Sitecore.XConnect.Collection.Model.AddressList"/> facet.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper"/> class.
+            </summary>
+            <param name="facetName">
+            The EmailAddressList facet name. Default value is 
+            <see cref="F:Sitecore.XConnect.Collection.Model.CollectionModel.FacetKeys.AddressList"/>.
+            </param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper.FacetName">
+            <summary>Gets the facet name.</summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.PreferredAddressFacetMapper.PreferredKey">
+            <summary>Gets the default address preferred key constant.</summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.XConnectContactImporter">
+            <summary>
+            Imports a batch of contacts.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.XConnectContactImporter.#ctor(Sitecore.ListManagement.XConnect.IXdbClientFactory,Sitecore.ListManagement.XConnect.Import.IFacetMapper,Sitecore.ListManagement.Configuration.ListManagementSettings,Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.XConnectContactImporter"/> class.
+            </summary>
+            <param name="xdbClientFactory">The factory to create XdbClient instances.</param>
+            <param name="facetMapper">The mapper to map a facet info.</param>
+            <param name="settings">The list management settings.</param>
+            <param name="log">Log storage (f.e. log files or Blob Storage in Azure).</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.XConnectContactImporter.Import(System.Collections.Generic.IEnumerable{System.String[]},Sitecore.ListManagement.Import.ImportOptions,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Imports contacts from the <paramref name="contacts"/> collection of rows.
+            </summary>
+            <param name="contacts">The collection of rows from CSV-file.</param>
+            <param name="options">
+            The mapping options matching the contact data fields and their indexes 
+            in a CSV line.</param>
+            <param name="summary">
+            An instance of the <see cref="T:Sitecore.ListManagement.Import.ImportSummary"/> with importing 
+            statistics showing how many contacts have been imported or skipped.
+            </param>
+            <returns>
+            Asynchronous import operation.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.CompositeFacetMapperCollection">
+            <summary>
+            Iterates through the list of registered mappers looking for the compatible one.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeFacetMapperCollection.#ctor(Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.CompositeFacetMapperCollection"/> class.
+            </summary>
+            <param name="log">The log.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeFacetMapperCollection.GetEnumerator">
+            <summary>Returns an enumerator that iterates through the mapper collection.</summary>
+            <returns>An enumerator that can be used to iterate through the mapper collection.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeFacetMapperCollection.Map(System.String,Sitecore.XConnect.Facet,Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Iterates through the list of registered mappers looking for the compatible one.
+            The first mapping result different from the <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> is considered
+            as the successful one and stops the iteration.
+            </summary>
+            <param name="facetKey">The well-known facet key to set the data to.</param>
+            <param name="facet">The current facet to map (if any) or null.</param>
+            <param name="mappings">The mappings.</param>
+            <param name="data">Row from a CSV file representing contact info to import.</param>
+            <returns>The mapping result.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.CompositeFacetMapperCollection.Add(Sitecore.ListManagement.XConnect.Import.IFacetMapper)">
+            <summary>
+            Adds a <paramref name="facetMapper"/> to the mapper collection.
+            </summary>
+            <param name="facetMapper">The facet mapper.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.FacetMapped">
+            <summary>
+            Returned by a <see cref="T:Sitecore.ListManagement.XConnect.Import.IFacetMapper"/> when a facet was recognized 
+            and mapped successfully.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.FacetMapped.#ctor(System.String,Sitecore.XConnect.Facet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.FacetMapped"/> class.
+            </summary>
+            <param name="facetKey">The facet key.</param>
+            <param name="facet">The facet.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.FacetMapped.FacetKey">
+            <summary>Gets the facet key.</summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.FacetMapped.Facet">
+            <summary>Gets the facet.</summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.FacetMapped.Accept(Sitecore.XConnect.IXdbContext,Sitecore.XConnect.Contact,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Provides the final action when the data mapping is performed. It can be
+            saving the <paramref name="contact"/> into Xdb or calculating 
+            statistics.
+            </summary>
+            <param name="client">The Xdb context.</param>
+            <param name="contact">The contact.</param>
+            <param name="summary">The import summary.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.MappingResult">
+            <summary>
+            Represents a facet mapping result which might be processed in some way.
+            Usually it will be storing the facet into XConnect or import statistic 
+            calculation.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.MappingResult.Accept(Sitecore.XConnect.IXdbContext,Sitecore.XConnect.Contact,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Provides the final action when the data mapping is performed. It can be
+            saving the <paramref name="contact"/> into XConnect or calculating 
+            statistics.
+            </summary>
+            <param name="client">The context.</param>
+            <param name="contact">The contact.</param>
+            <param name="summary">The import summary.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.NoMatch">
+            <summary>
+            Returned by a <see cref="T:Sitecore.ListManagement.XConnect.Import.IFacetMapper"/> when a facet has not been 
+            recognized by the mapper.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.NoMatch.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> class.
+            </summary>
+            <param name="facetKey">The name of the non-matched facet.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.NoMatch.FacetKey">
+            <summary>
+            Gets the facet key.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.NoMatch.Accept(Sitecore.XConnect.IXdbContext,Sitecore.XConnect.Contact,Sitecore.ListManagement.Import.ImportSummary)">
+            <summary>
+            Does nothing since no contact mapped.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="contact">The contact.</param>
+            <param name="summary">The import summary.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper">
+            <summary>
+            Reads contact email data from an array of string (from a CSV file)
+            and sets it into the <see cref="T:Sitecore.XConnect.Collection.Model.EmailAddressList"/> facet.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper"/> class.
+            </summary>
+            <param name="facetName">
+            The EmailAddressList facet name. Default value is 
+            <see cref="F:Sitecore.XConnect.Collection.Model.CollectionModel.FacetKeys.EmailAddressList"/>.
+            </param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper.FacetName">
+            <summary>Gets the facet name.</summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper.PreferredKey">
+            <summary>Gets the default email preferred key constant.</summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PreferredEmailFacetMapper.Map(System.String,Sitecore.XConnect.Facet,Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Maps raw data from a CSV file into <see cref="T:Sitecore.XConnect.Collection.Model.EmailAddressList"/> facet.
+            </summary>
+            <param name="facetKey">The facet key.</param>
+            <param name="facet">
+            The facet to map the CSV data to. If not specified, the mapper should 
+            create new facet instance.
+            </param>
+            <param name="mappings">The mapping info.</param>
+            <param name="data">The data retrieved from a CSV file.</param>
+            <returns>
+            <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> if the <paramref name="facetKey"/> does not match
+            the expected facet name; otherwise, <see cref="T:Sitecore.ListManagement.XConnect.Import.FacetMapped"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper">
+            <summary>
+            Maps all the <see cref="T:Sitecore.XConnect.Collection.Model.PersonalInformation"/> facet properties.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper"/> class.
+            </summary>
+            <param name="facetName">
+            The EmailAddressList facet name. Default value is 
+            <see cref="F:Sitecore.XConnect.Collection.Model.CollectionModel.FacetKeys.PersonalInformation"/>.
+            </param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper.FacetName">
+            <summary>Gets the facet name.</summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.PersonalInformationFacetMapper.Map(System.String,Sitecore.XConnect.Facet,Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Maps raw data from a CSV file into <see cref="T:Sitecore.XConnect.Collection.Model.PersonalInformation"/> facet.
+            </summary>
+            <param name="facetKey">The facet key.</param>
+            <param name="facet">
+            The facet to map the CSV data to. If not specified, the mapper should 
+            create new facet instance.
+            </param>
+            <param name="mappings">The mapping info.</param>
+            <param name="data">The data retrieved from a CSV file.</param>
+            <returns>
+            <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> if the <paramref name="facetKey"/> does not match
+            the expected facet name; otherwise, <see cref="T:Sitecore.ListManagement.XConnect.Import.FacetMapped"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.IFacetMapper">
+            <summary>
+            Maps raw data from a CSV file into contact facets.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.IFacetMapper.Map(System.String,Sitecore.XConnect.Facet,Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Maps raw data from a CSV file into contact facets.
+            </summary>
+            <para>
+            TODO: Describe with mapping examples.
+            </para>
+            <param name="facetKey">The well-known facet key to set the data to.</param>
+            <param name="facet">
+            The facet to map the CSV data to. If not specified, the mapper should 
+            create new facet instance.
+            </param>
+            <param name="mappings">The mappings.</param>
+            <param name="data">Row from a CSV file representing contact info to import.</param>
+            <returns>
+            The facet mapping result. Typically it should be <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> 
+            if the <paramref name="facetKey"/> does not match the expected facet 
+            name; otherwise, <see cref="T:Sitecore.ListManagement.XConnect.Import.FacetMapped"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper">
+            <summary>
+            Adds a subscription to the contact subscriptions facet if 
+            the <see cref="T:Sitecore.ListManagement.Import.ContactMappingInfo" /> contains subscription.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper"/> class.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper"/> class.
+            </summary>
+            <param name="facetName">The name of the ListSubscriptions facet.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper.FacetName">
+            <summary>The facet name.</summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Import.ListSubscriptionMapper.Map(System.String,Sitecore.XConnect.Facet,Sitecore.ListManagement.Import.ContactMappingInfo,System.String[])">
+            <summary>
+            Maps raw data from a CSV file into <see cref="T:Sitecore.XConnect.Collection.Model.ListSubscriptions"/> facet.
+            </summary>
+            <param name="facetKey">The facet key.</param>
+            <param name="facet">
+            The facet to map the CSV data to. If not specified, the mapper should 
+            create new facet instance.
+            </param>
+            <param name="mappings">The mapping info.</param>
+            <param name="data">The data retrieved from a CSV file.</param>
+            <returns>
+            <see cref="T:Sitecore.ListManagement.XConnect.Import.NoMatch"/> if the <paramref name="facetKey"/> does not match
+            the expected facet name; otherwise, <see cref="T:Sitecore.ListManagement.XConnect.Import.FacetMapped"/>.
+            </returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ListCombiner">
+            <summary>
+            Works with collections of identifiers of contact lists
+            and returns resulting collections of contacts or batched enumerators.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.#ctor(Sitecore.ListManagement.XConnect.Sources.Providers.IContactSourceProvider,Sitecore.ListManagement.XConnect.Segmentation.ISegmentationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.ListCombiner"/> class.
+            </summary>
+            <param name="contactSourceProvider">Contact source provider.</param>
+            <param name="segmentationService">Segmentation service.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Union(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Unions contacts from different contact lists.
+            </summary>
+            <param name="listIds">Ids of contact lists that need to unite.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Except(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Excepts contacts from one set of contact lists from base collection of contacts.
+            </summary>
+            <param name="leftListIds">
+            Identifiers of contact lists that act like basis for set of contacts.
+            </param>
+            <param name="rightListIds">
+            Identifiers of contact lists that are needed to be excepted from basis.
+            </param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="skip">Count of contacts to be skipped</param>
+            <param name="take">Count of contacts to be taken right after skipped ones</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Intersect(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Gets and intersects two collections of contacts from different contact lists.
+            </summary>
+            <param name="leftListIds">Left collection of contacts.</param>
+            <param name="rightListIds">Right collection of contacts.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.UnionCount(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets count of united contacts from different contact lists.
+            </summary>
+            <param name="listIds">Ids of contact lists that need to unite.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.ExceptCount(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets count of excepted contacts from one set of contact lists 
+            from base collection of contacts.
+            </summary>
+            <param name="leftListIds">
+            Identifiers of contact lists that act like basis for set of contacts.
+            </param>
+            <param name="rightListIds">
+            Identifiers of contact lists that are needed to be excepted from basis.
+            </param>
+            <param name="cultureInfo">Culture info.</param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.IntersectCount(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets count of intersection of two collections of contacts 
+            from different contact lists.
+            </summary>
+            <param name="leftListIds">Left collection of contacts.</param>
+            <param name="rightListIds">Right collection of contacts.</param>
+            <param name="cultureInfo">Culture info.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Union(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to union of lists.
+            </summary>
+            <param name="listIds">Ids of contact lists that need to be united.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="batchSize">
+            Defines size of the batch to get by single move of enumerator.
+            </param>
+            /// <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get united contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Except(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            excepted contacts from one set of contact lists from base collection of contacts.
+            </summary>
+            <param name="leftListIds">
+            Identifiers of contact lists that act like basis for set of contacts.
+            </param>
+            <param name="rightListIds">
+            Identifiers of contact lists that are needed to be excepted from basis.
+            </param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="batchSize">
+            Defines size of the batch to get by single move of enumerator.
+            </param>
+            /// <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get excepted contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Intersect(System.Collections.Generic.IEnumerable{System.Guid},System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            intersection of two collections of contacts from different contact lists.
+            </summary>
+            <param name="leftListIds">Left collection of identifiers of lists.</param>
+            <param name="rightListIds">Right collection of identifiers of lists.</param>
+            <param name="cultureInfo">Culture info.</param>
+            <param name="batchSize">
+            Defines size of the batch to get by single move of enumerator.
+            </param>
+            /// <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get intersected contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Union(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.Int32,System.String[])">
+            <summary>
+            Unions contacts from different contact sources.
+            </summary>
+            <param name="contactSources">Contact sources that need to be united.</param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Except(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.Int32,System.String[])">
+            <summary>
+            Excepts contacts from one set of contact sources from base collection of contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Intersect(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.Int32,System.String[])">
+            <summary>
+            Gets and intersects two collections of contacts from different contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <param name="skip">Count of contacts to be skipped.</param>
+            <param name="take">Count of contacts to be taken right after skipped ones.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Collection of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Union(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to union of contact sources.
+            </summary>
+            <param name="contactSources">Contact sources that need to be united.</param>
+            <param name="batchSize">
+            Defines size of the batch to get by single move of enumerator.
+            </param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get united contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Except(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            excepted contacts from one set of contact sources from base 
+            collection of contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <param name="batchSize">
+            Defines size of the batch to get by single move of enumerator.
+            </param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get excepted contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.Intersect(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to
+            intersection of two collections of contacts from different contact sources.
+            </summary>
+            <param name="leftContactSources">Left collection of contact sources.</param>
+            <param name="rightContactSources">Right collection of contact sources.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.
+            </param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator to get intersected contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.UnionCount(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Gets count of united contacts from different contact sources.
+            </summary>
+            <param name="contactSources">Contact sources that need to be united.</param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.ExceptCount(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Gets count of excepted contacts from one set of contact sources 
+            from base collection of contact sources.
+            </summary>
+            <param name="leftContactSources">
+            Contact sources that act like basis for set of contacts.
+            </param>
+            <param name="rightContactSources">
+            Contact sources that are needed to be excepted from basis.
+            </param>
+            <returns>Count of contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ListCombiner.IntersectCount(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Gets count of intersection of two collections of contacts from different contact sources.
+            </summary>
+            <param name="leftContactSources">Left collection of contact sources.</param>
+            <param name="rightContactSources">Right collection of contact sources.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.EmailAddressMatches.CreateContactSearchQuery(Sitecore.XConnect.Segmentation.Predicates.IContactSearchQueryContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Segmentation.ISegmentationService">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.ISegmentationService.GetCount(Sitecore.ListManagement.XConnect.Sources.IContactSource)">
+            <summary>
+            Gets count of contacts that correspond to provided source.
+            </summary>
+            <returns>Contacts count.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.ISegmentationService.GetContacts(Sitecore.ListManagement.XConnect.Sources.IContactSource,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Fetches contacts that correspond to provided source.
+            </summary>
+            <param name="contactSource">Source of the list.</param>
+            <param name="skip">Used to calculate amount of contacts to skip on paging.</param>
+            <param name="take">Used to calculate amount of contacts to take on paging.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Fetched contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.ISegmentationService.GetContactBatchEnumerator(Sitecore.ListManagement.XConnect.Sources.IContactSource,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to provided source.
+            </summary>
+            <param name="contactSource">Source of the list.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            /// <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Segmentation.SegmentationService">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.SegmentationService.#ctor(Sitecore.XConnect.Segmentation.ISegmentationEngine)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.SegmentationService.GetContacts(Sitecore.ListManagement.XConnect.Sources.IContactSource,System.Int32,System.Int32,System.String[])">
+            <summary>
+            Fetches contacts that correspond to provided source.
+            </summary>
+            <param name="contactSource">Source of the list.</param>
+            <param name="skip">Used to calculate amount of contacts to skip on paging.</param>
+            <param name="take">Used to calculate amount of contacts to take on paging.</param>
+            <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Fetched contacts.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.SegmentationService.GetContactBatchEnumerator(Sitecore.ListManagement.XConnect.Sources.IContactSource,System.Int32,System.String[])">
+            <summary>
+            Gets batch enumerator that corresponds to provided source.
+            </summary>
+            <param name="contactSource">Source of the list.</param>
+            <param name="batchSize">Defines size of the batch to get by single move of enumerator.</param>
+            /// <param name="facets">Array of facets to expand contacts with.</param>
+            <returns>Batch enumerator.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Segmentation.FirstNameMatches.CreateContactSearchQuery(Sitecore.XConnect.Segmentation.Predicates.IContactSearchQueryContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactsOperationIndexingState">
+            <summary>
+            Service for getting state of operation indexing based on xConnect contacts.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactsOperationIndexingState.#ctor(Sitecore.ListManagement.XConnect.IXdbClientFactory,Sitecore.ListManagement.Configuration.ListManagementSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.ContactsOperationIndexingState"/> class.
+            </summary>
+            <param name="xdbClientFactory">The XDB client factory.</param>
+            <param name="settings">The settings.</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactSubscriptionChangeHandler">
+            <summary>
+            Contact list subscription class process list subscriptions to match <see cref="T:Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition"/> included and excluded sources
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactSubscriptionChangeHandler.#ctor(Sitecore.ListManagement.XConnect.IXdbClientFactory,Sitecore.ListManagement.Operations.IListOperationRepository,Sitecore.ListManagement.Configuration.ListManagementSettings,Sitecore.Abstractions.BaseLog)">
+            <summary></summary>
+            <param name="xdbClientFactory"></param>
+            <param name="operationRepository"></param>
+            <param name="settings"></param>
+            <param name="log"></param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactSubscriptionChangeHandler.ProcessContactListSources(Sitecore.Marketing.Definitions.ContactLists.IContactListDefinition)">
+            <summary>
+            </summary>
+            <param name="newDefinition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactSubscriptionChangeHandler.RemoveAllSubscriptionsAsync(System.Guid)">
+            <summary>
+            Remove all subscriptions for contacts (in case of making an empty list or clean broken links after deleting the list)
+            </summary>
+            <param name="definitionId">Definition Id of list</param>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.ExceptListsSource">
+            <summary>
+             Defines source to except several sources from base one.
+            </summary>
+            <seealso cref="T:Sitecore.ListManagement.XConnect.Sources.IContactSource" />
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.ExceptListsSource.#ctor(Sitecore.ListManagement.XConnect.Sources.IContactSource,System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Sources.ExceptListsSource"/> class.
+            </summary>
+            <param name="contactSource">Base contact source.</param>
+            <param name="exceptContactSources">The excluded contact sources.</param>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Sources.ExceptListsSource.ContactSource">
+            <summary>
+            Gets the contact source.
+            </summary>
+            <value>
+            The contact source.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Sources.ExceptListsSource.ExceptContactSources">
+            <summary>
+            Gets contact sources to except.
+            </summary>
+            <value>
+            The contact sources to except.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.ExceptListsSource.GetQuery">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.Extensions.ContactSourceExtensions">
+            <summary>
+            Set of extensions to work directly with contact sources.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Extensions.ContactSourceExtensions.ExceptDoNotMarket(Sitecore.ListManagement.XConnect.Sources.IContactSource)">
+            <summary>
+            Excepts the contacts that have "DoNotMarket" flag being set.
+            </summary>
+            <param name="contactSource">The contact source.</param>
+            <returns>The updated contact source.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Extensions.ContactSourceExtensions.ExceptDoNotMarket(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Excepts the contacts that have "DoNotMarket" flag being set.
+            </summary>
+            <param name="contactSources">The contact sources.</param>
+            <returns>The updated contact source.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Extensions.ContactSourceExtensions.ExceptConsentRevoked(Sitecore.ListManagement.XConnect.Sources.IContactSource)">
+            <summary>
+            Excepts the contacts that have "ConsentRevoked" flag being set.
+            </summary>
+            <param name="contactSource">The contact source.</param>
+            <returns>The updated contact source.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Extensions.ContactSourceExtensions.ExceptConsentRevoked(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Excepts the contacts that have "ConsentRevoked" flag being set.
+            </summary>
+            <param name="contactSources">The contact sources.</param>
+            <returns>The updated contact source.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.Providers.ContactSourceProvider">
+            <summary>
+            Contact source provider.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Providers.ContactSourceProvider.#ctor(Sitecore.ListManagement.IContactListProvider,Sitecore.ListManagement.XConnect.IContactSourceFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Sources.Providers.ContactSourceProvider"/> class.
+            </summary>
+            <param name="contactListProvider">The contact list provider.</param>
+            <param name="contactSourceFactory">The contact source factory.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Providers.ContactSourceProvider.GetContactSources(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets the contact sources.
+            </summary>
+            <param name="listIds">
+            Ids of contact lists that need to take
+            contact sources from.
+            </param>
+            <param name="cultureInfo">
+            Culture to get contact list for.
+            </param>
+            <returns>Collection of contact sources.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.Providers.IContactSourceProvider">
+            <summary>
+            Contact source provider.
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Providers.IContactSourceProvider.GetContactSources(System.Collections.Generic.IEnumerable{System.Guid},System.Globalization.CultureInfo)">
+            <summary>
+            Gets the contact sources.
+            </summary>
+            <param name="listIds">
+            Ids of contact lists that need to take
+            contact sources from.
+            </param>
+            <param name="cultureInfo">
+            Culture to get contact list for.
+            </param>
+            <returns>Collection of contact sources.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.IntersectListsSource">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.IntersectListsSource.#ctor(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource},System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary></summary>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Sources.IntersectListsSource.ContactSourcesLeft">
+            <summary>
+            Gets the left contact sources.
+            </summary>
+            <value>
+            The left contact sources.
+            </value>
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Sources.IntersectListsSource.ContactSourcesRight">
+            <summary>
+            Gets the right contact sources.
+            </summary>
+            <value>
+            The right contact sources.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.IntersectListsSource.GetQuery">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.Predefined.ConsentRevokedSource">
+            <summary>
+            Gets query to search for contacts that have
+            "ConsentRevoked" flag being set.
+            </summary>
+            <seealso cref="T:Sitecore.ListManagement.XConnect.Sources.IContactSource" />
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Predefined.ConsentRevokedSource.GetQuery">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.Predefined.ConsentRevokedSource.ConsentRevokedQueryFactory">
+            <summary>
+            Defines contact search query to search for contacts that have
+            "ConsentRevoked" flag being set.
+            </summary>
+            <seealso cref="T:Sitecore.XConnect.Segmentation.Predicates.Contacts.ConsentRevokedMatches" />
+            <seealso cref="T:Sitecore.XConnect.Segmentation.Predicates.IContactSearchQueryFactory" />
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Predefined.ConsentRevokedSource.ConsentRevokedQueryFactory.CreateContactSearchQuery(Sitecore.XConnect.Segmentation.Predicates.IContactSearchQueryContext)">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.Predefined.DoNotMarketSource">
+            <summary>
+            Gets query to search for contacts that have
+            "DoNotMarket" flag being set.
+            </summary>
+            <seealso cref="T:Sitecore.ListManagement.XConnect.Sources.IContactSource" />
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.Predefined.DoNotMarketSource.GetQuery">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.UnionListsSource">
+            <summary>
+             Defines source to union several sources.
+            </summary>
+            <seealso cref="T:Sitecore.ListManagement.XConnect.Sources.IContactSource" />
+        </member>
+        <member name="P:Sitecore.ListManagement.XConnect.Sources.UnionListsSource.ContactSources">
+            <summary>
+            Gets the contact sources.
+            </summary>
+            <value>
+            The contact sources.
+            </value>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.UnionListsSource.#ctor(System.Collections.Generic.IEnumerable{Sitecore.ListManagement.XConnect.Sources.IContactSource})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sitecore.ListManagement.XConnect.Sources.UnionListsSource"/> class.
+            </summary>
+            <param name="contactSources">The contact sources.</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.UnionListsSource.GetQuery">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.Sources.IContactSource">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.Sources.IContactSource.GetQuery">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.SubscriptionService">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.SubscriptionService.#ctor(Sitecore.ListManagement.XConnect.IXdbClientFactory,Sitecore.ListManagement.Configuration.ListManagementSettings,Sitecore.Abstractions.BaseLog)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.SubscriptionService.CreateSubscribedContact(System.Guid,System.String,System.String,System.String,System.String,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.SubscriptionService.Subscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.SubscriptionService.Subscribe(System.Guid,System.Collections.Generic.IEnumerable{Sitecore.XConnect.Contact})">
+            <summary>
+            Subscribe collection of contacts to the list.
+            </summary>
+            <param name="listId">Identifier of the list to subscribe.</param>
+            <param name="contacts">Collection of contacts to subscribe to the list.</param>
+            <returns>The instance of <see cref="T:Sitecore.ListManagement.XConnect.SubscriptionResult"/>.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.SubscriptionService.Unsubscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.SubscriptionService.Unsubscribe(System.Guid,System.Collections.Generic.IEnumerable{Sitecore.XConnect.Contact})">
+            <summary>
+            Unsubscribe collection of contacts from the list.
+            </summary>
+            <param name="listId">Identifier of the list to subscribe.</param>
+            <param name="contacts">Collection of contacts to unsubscribe from the list.</param>
+            <returns>The instance of <see cref="T:Sitecore.ListManagement.XConnect.SubscriptionResult"/>.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.DependencyInjection.CustomServiceConfigurator">
+            <summary>
+            Configures ListManager XConnect entities and their dependencies.
+            Class is registered in configuration file and instatiated by 
+            Sitecore dependency injection routine.
+            </summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ISubscriptionService">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ISubscriptionService.CreateSubscribedContact(System.Guid,System.String,System.String,System.String,System.String,System.String)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ISubscriptionService.Subscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ISubscriptionService.Subscribe(System.Guid,System.Collections.Generic.IEnumerable{Sitecore.XConnect.Contact})">
+            <summary>
+            Subscribe collection of contacts to the list.
+            </summary>
+            <param name="listId">Identifier of the list to subscribe.</param>
+            <param name="contacts">Collection of contacts to subscribe to the list.</param>
+            <returns>The instance of <see cref="T:Sitecore.ListManagement.XConnect.SubscriptionResult"/>.</returns>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ISubscriptionService.Unsubscribe(System.Guid,System.Guid)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ISubscriptionService.Unsubscribe(System.Guid,System.Collections.Generic.IEnumerable{Sitecore.XConnect.Contact})">
+            <summary>
+            Unsubscribe collection of contacts from the list.
+            </summary>
+            <param name="listId">Identifier of the list to subscribe.</param>
+            <param name="contacts">Collection of contacts to unsubscribe from the list.</param>
+            <returns>The instance of <see cref="T:Sitecore.ListManagement.XConnect.SubscriptionResult"/>.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.IContactProvider">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IContactProvider.GetFilteredContacts(Sitecore.ListManagement.ContactList,System.String,System.Int32,System.Int32)">
+            <summary>
+            Fetches contacts that correspond to provided source and filters them according to search parameters.
+            </summary>
+            <param name="contactList">The contact list.</param>
+            <param name="searchFilter">Search filter.</param>
+            <param name="pageIndex">Index of the page to take contacts from.</param>
+            <param name="pageSize">Saze of single page with contacts.</param>
+            <returns>Asyncronuous task that fetches contacts filling total count.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.IXdbClientFactory">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.IXdbClientFactory.GetXConnectClient">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.ContactProvider">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactProvider.#ctor(Sitecore.ListManagement.XConnect.Segmentation.ISegmentationService,Sitecore.ListManagement.XConnect.IContactSourceFactory)">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.ContactProvider.GetFilteredContacts(Sitecore.ListManagement.ContactList,System.String,System.Int32,System.Int32)">
+            <summary>
+            Fetches contacts that correspond to provided source and filters them according to search parameters.
+            </summary>
+            <param name="contactList">The contact list.</param>
+            <param name="searchFilter">Search filter.</param>
+            <param name="pageIndex">Index of the page to take contacts from.</param>
+            <param name="pageSize">Saze of single page with contacts.</param>
+            <returns>Asyncronuous task that fetches contacts filling total count.</returns>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.XdbClientFactory">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.XdbClientFactory.Sitecore#ListManagement#XConnect#IXdbClientFactory#GetXConnectClient">
+            <summary></summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.XdbClientFactory.GetXConnectClient">
+            <summary></summary>
+        </member>
+        <member name="T:Sitecore.ListManagement.XConnect.XdbRequestPerformer">
+            <summary>
+            Contains methods that envelop requests to xDB and make them safer
+            </summary>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.XdbRequestPerformer.#ctor(Sitecore.ListManagement.XConnect.IXdbClientFactory,Sitecore.ListManagement.Configuration.ListManagementSettings,Sitecore.Abstractions.BaseLog)">
+            <summary>
+            Ctor for <see cref="T:Sitecore.ListManagement.XConnect.XdbRequestPerformer"/>
+            </summary>
+            <param name="xdbClientFactory"></param>
+            <param name="settings">The list management settings.</param>
+            <param name="log">Log storage (f.e. log files or Blob Storage in Azure).</param>
+        </member>
+        <member name="M:Sitecore.ListManagement.XConnect.XdbRequestPerformer.RequestWithRetry(System.Action{Sitecore.XConnect.IXdbContext},System.String)">
+            <summary>
+            Executes actions that work with facets before submitting and try to retry submitting in case if it is not successful
+            </summary>
+            <param name="action">Actions that work with facets and submit</param>
+            <param name="actionMessage">Is used to describe submitting exception in log</param>
+        </member>
+    </members>
+</doc>
